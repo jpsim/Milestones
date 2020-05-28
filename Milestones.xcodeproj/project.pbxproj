@@ -1,0 +1,607 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8F06DA3024743C6C00AA5451 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 8F06DA2F24743C6C00AA5451 /* ComposableArchitecture */; };
+		8F06DA3224743F2700AA5451 /* MilestoneCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F06DA3124743F2700AA5451 /* MilestoneCellView.swift */; };
+		8F06DA3424743F6C00AA5451 /* Milestones+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F06DA3324743F6C00AA5451 /* Milestones+Mock.swift */; };
+		8F06DA3624743FB200AA5451 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F06DA3524743FB200AA5451 /* CalendarView.swift */; };
+		8F859494247240F10053A911 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F859493247240F10053A911 /* SceneDelegate.swift */; };
+		8F859496247240F10053A911 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F859495247240F10053A911 /* AppView.swift */; };
+		8F859498247240F30053A911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F859497247240F30053A911 /* Assets.xcassets */; };
+		8F85949B247240F30053A911 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F85949A247240F30053A911 /* Preview Assets.xcassets */; };
+		8F85949E247240F30053A911 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F85949C247240F30053A911 /* LaunchScreen.storyboard */; };
+		8F8594A9247240F30053A911 /* MilestoneReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8594A8247240F30053A911 /* MilestoneReducerTests.swift */; };
+		8F90490E247E2E820083664F /* Calendar+Milestones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F90490D247E2E820083664F /* Calendar+Milestones.swift */; };
+		8F9241A8247A1C55004681F1 /* DateComponentsFormatter+Milestones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9241A7247A1C55004681F1 /* DateComponentsFormatter+Milestones.swift */; };
+		8F9241AA247A1CBF004681F1 /* DateFormatter+Milestones.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9241A9247A1CBF004681F1 /* DateFormatter+Milestones.swift */; };
+		8F9241AC247B3724004681F1 /* MilestoneEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9241AB247B3724004681F1 /* MilestoneEditView.swift */; };
+		8F9241AF247B99F3004681F1 /* Milestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9241AE247B99F3004681F1 /* Milestone.swift */; };
+		8F9241B1247B9A2C004681F1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9241B0247B9A2C004681F1 /* AppState.swift */; };
+		8F9241B6247B9D04004681F1 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9241B5247B9D04004681F1 /* Storage.swift */; };
+		8F9241B8247C1E6C004681F1 /* MilestoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9241B7247C1E6C004681F1 /* MilestoneTests.swift */; };
+		8F9241BA247C1FBB004681F1 /* AppReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9241B9247C1FBB004681F1 /* AppReducerTests.swift */; };
+		8FA23F472472580900DCE048 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA23F402472580900DCE048 /* CalendarHeaderView.swift */; };
+		8FA23F482472580900DCE048 /* CalendarMonthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA23F412472580900DCE048 /* CalendarMonthView.swift */; };
+		8FA23F492472580900DCE048 /* CalendarDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FA23F422472580900DCE048 /* CalendarDateView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8F8594A5247240F30053A911 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F859486247240F10053A911 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F85948D247240F10053A911;
+			remoteInfo = Milestones;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8F06DA3124743F2700AA5451 /* MilestoneCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneCellView.swift; sourceTree = "<group>"; };
+		8F06DA3324743F6C00AA5451 /* Milestones+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Milestones+Mock.swift"; sourceTree = "<group>"; };
+		8F06DA3524743FB200AA5451 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		8F85948E247240F10053A911 /* Milestones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Milestones.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F859493247240F10053A911 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8F859495247240F10053A911 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		8F859497247240F30053A911 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8F85949A247240F30053A911 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8F85949D247240F30053A911 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8F85949F247240F30053A911 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F8594A4247240F30053A911 /* MilestonesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MilestonesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F8594A8247240F30053A911 /* MilestoneReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneReducerTests.swift; sourceTree = "<group>"; };
+		8F8594AA247240F30053A911 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F8594B3247255A60053A911 /* Milestones.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Milestones.entitlements; sourceTree = "<group>"; };
+		8F90490D247E2E820083664F /* Calendar+Milestones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Calendar+Milestones.swift"; sourceTree = "<group>"; };
+		8F9241A7247A1C55004681F1 /* DateComponentsFormatter+Milestones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateComponentsFormatter+Milestones.swift"; sourceTree = "<group>"; };
+		8F9241A9247A1CBF004681F1 /* DateFormatter+Milestones.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateFormatter+Milestones.swift"; sourceTree = "<group>"; };
+		8F9241AB247B3724004681F1 /* MilestoneEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneEditView.swift; sourceTree = "<group>"; };
+		8F9241AE247B99F3004681F1 /* Milestone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Milestone.swift; sourceTree = "<group>"; };
+		8F9241B0247B9A2C004681F1 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		8F9241B5247B9D04004681F1 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		8F9241B7247C1E6C004681F1 /* MilestoneTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneTests.swift; sourceTree = "<group>"; };
+		8F9241B9247C1FBB004681F1 /* AppReducerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducerTests.swift; sourceTree = "<group>"; };
+		8FA23F402472580900DCE048 /* CalendarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
+		8FA23F412472580900DCE048 /* CalendarMonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarMonthView.swift; sourceTree = "<group>"; };
+		8FA23F422472580900DCE048 /* CalendarDateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDateView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8F85948B247240F10053A911 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F06DA3024743C6C00AA5451 /* ComposableArchitecture in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F8594A1247240F30053A911 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8F859485247240F10053A911 = {
+			isa = PBXGroup;
+			children = (
+				8F859490247240F10053A911 /* Milestones */,
+				8F8594A7247240F30053A911 /* MilestonesTests */,
+				8F85948F247240F10053A911 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8F85948F247240F10053A911 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8F85948E247240F10053A911 /* Milestones.app */,
+				8F8594A4247240F30053A911 /* MilestonesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8F859490247240F10053A911 /* Milestones */ = {
+			isa = PBXGroup;
+			children = (
+				8F859493247240F10053A911 /* SceneDelegate.swift */,
+				8F8766FA247875660055170D /* Views */,
+				8F9241AD247B99C2004681F1 /* State */,
+				8F9241B4247B9CF5004681F1 /* Storage */,
+				8FA23F3D2472580900DCE048 /* Calendar */,
+				8F9241B2247B9AA5004681F1 /* Extensions */,
+				8F859499247240F30053A911 /* Preview Content */,
+				8F8594B3247255A60053A911 /* Milestones.entitlements */,
+				8F85949F247240F30053A911 /* Info.plist */,
+				8F859497247240F30053A911 /* Assets.xcassets */,
+				8F85949C247240F30053A911 /* LaunchScreen.storyboard */,
+			);
+			path = Milestones;
+			sourceTree = "<group>";
+		};
+		8F859499247240F30053A911 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				8F85949A247240F30053A911 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8F8594A7247240F30053A911 /* MilestonesTests */ = {
+			isa = PBXGroup;
+			children = (
+				8F9241B9247C1FBB004681F1 /* AppReducerTests.swift */,
+				8F8594A8247240F30053A911 /* MilestoneReducerTests.swift */,
+				8F9241B7247C1E6C004681F1 /* MilestoneTests.swift */,
+				8F8594AA247240F30053A911 /* Info.plist */,
+			);
+			path = MilestonesTests;
+			sourceTree = "<group>";
+		};
+		8F8766FA247875660055170D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8F859495247240F10053A911 /* AppView.swift */,
+				8F06DA3124743F2700AA5451 /* MilestoneCellView.swift */,
+				8F9241AB247B3724004681F1 /* MilestoneEditView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8F9241AD247B99C2004681F1 /* State */ = {
+			isa = PBXGroup;
+			children = (
+				8F9241B0247B9A2C004681F1 /* AppState.swift */,
+				8F9241AE247B99F3004681F1 /* Milestone.swift */,
+			);
+			path = State;
+			sourceTree = "<group>";
+		};
+		8F9241B2247B9AA5004681F1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8F90490D247E2E820083664F /* Calendar+Milestones.swift */,
+				8F9241A7247A1C55004681F1 /* DateComponentsFormatter+Milestones.swift */,
+				8F9241A9247A1CBF004681F1 /* DateFormatter+Milestones.swift */,
+				8F06DA3324743F6C00AA5451 /* Milestones+Mock.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		8F9241B4247B9CF5004681F1 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				8F9241B5247B9D04004681F1 /* Storage.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		8FA23F3D2472580900DCE048 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				8F06DA3524743FB200AA5451 /* CalendarView.swift */,
+				8FA23F402472580900DCE048 /* CalendarHeaderView.swift */,
+				8FA23F412472580900DCE048 /* CalendarMonthView.swift */,
+				8FA23F422472580900DCE048 /* CalendarDateView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8F85948D247240F10053A911 /* Milestones */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F8594AD247240F30053A911 /* Build configuration list for PBXNativeTarget "Milestones" */;
+			buildPhases = (
+				8F85948A247240F10053A911 /* Sources */,
+				8F85948B247240F10053A911 /* Frameworks */,
+				8F85948C247240F10053A911 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Milestones;
+			packageProductDependencies = (
+				8F06DA2F24743C6C00AA5451 /* ComposableArchitecture */,
+			);
+			productName = Milestones;
+			productReference = 8F85948E247240F10053A911 /* Milestones.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8F8594A3247240F30053A911 /* MilestonesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F8594B0247240F30053A911 /* Build configuration list for PBXNativeTarget "MilestonesTests" */;
+			buildPhases = (
+				8F8594A0247240F30053A911 /* Sources */,
+				8F8594A1247240F30053A911 /* Frameworks */,
+				8F8594A2247240F30053A911 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8F8594A6247240F30053A911 /* PBXTargetDependency */,
+			);
+			name = MilestonesTests;
+			productName = MilestonesTests;
+			productReference = 8F8594A4247240F30053A911 /* MilestonesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8F859486247240F10053A911 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = "JP Simard";
+				TargetAttributes = {
+					8F85948D247240F10053A911 = {
+						CreatedOnToolsVersion = 11.4;
+					};
+					8F8594A3247240F30053A911 = {
+						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 8F85948D247240F10053A911;
+					};
+				};
+			};
+			buildConfigurationList = 8F859489247240F10053A911 /* Build configuration list for PBXProject "Milestones" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8F859485247240F10053A911;
+			packageReferences = (
+				8F06DA2E24743C6C00AA5451 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
+			productRefGroup = 8F85948F247240F10053A911 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8F85948D247240F10053A911 /* Milestones */,
+				8F8594A3247240F30053A911 /* MilestonesTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8F85948C247240F10053A911 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F85949E247240F30053A911 /* LaunchScreen.storyboard in Resources */,
+				8F85949B247240F30053A911 /* Preview Assets.xcassets in Resources */,
+				8F859498247240F30053A911 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F8594A2247240F30053A911 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8F85948A247240F10053A911 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F9241AF247B99F3004681F1 /* Milestone.swift in Sources */,
+				8F06DA3224743F2700AA5451 /* MilestoneCellView.swift in Sources */,
+				8FA23F482472580900DCE048 /* CalendarMonthView.swift in Sources */,
+				8F9241AA247A1CBF004681F1 /* DateFormatter+Milestones.swift in Sources */,
+				8F90490E247E2E820083664F /* Calendar+Milestones.swift in Sources */,
+				8F9241B6247B9D04004681F1 /* Storage.swift in Sources */,
+				8FA23F472472580900DCE048 /* CalendarHeaderView.swift in Sources */,
+				8F9241B1247B9A2C004681F1 /* AppState.swift in Sources */,
+				8F06DA3424743F6C00AA5451 /* Milestones+Mock.swift in Sources */,
+				8F9241A8247A1C55004681F1 /* DateComponentsFormatter+Milestones.swift in Sources */,
+				8F06DA3624743FB200AA5451 /* CalendarView.swift in Sources */,
+				8FA23F492472580900DCE048 /* CalendarDateView.swift in Sources */,
+				8F9241AC247B3724004681F1 /* MilestoneEditView.swift in Sources */,
+				8F859494247240F10053A911 /* SceneDelegate.swift in Sources */,
+				8F859496247240F10053A911 /* AppView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8F8594A0247240F30053A911 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F9241BA247C1FBB004681F1 /* AppReducerTests.swift in Sources */,
+				8F9241B8247C1E6C004681F1 /* MilestoneTests.swift in Sources */,
+				8F8594A9247240F30053A911 /* MilestoneReducerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8F8594A6247240F30053A911 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F85948D247240F10053A911 /* Milestones */;
+			targetProxy = 8F8594A5247240F30053A911 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8F85949C247240F30053A911 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8F85949D247240F30053A911 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8F8594AB247240F30053A911 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8F8594AC247240F30053A911 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8F8594AE247240F30053A911 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Milestones/Milestones.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Milestones/Preview Content\"";
+				DEVELOPMENT_TEAM = X4ST43AL9W;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Milestones/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jpsim.milestones;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8F8594AF247240F30053A911 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Milestones/Milestones.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Milestones/Preview Content\"";
+				DEVELOPMENT_TEAM = X4ST43AL9W;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = Milestones/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 0.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jpsim.milestones;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8F8594B1247240F30053A911 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MilestonesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jpsim.MilestonesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Milestones.app/Milestones";
+			};
+			name = Debug;
+		};
+		8F8594B2247240F30053A911 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = MilestonesTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jpsim.MilestonesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Milestones.app/Milestones";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8F859489247240F10053A911 /* Build configuration list for PBXProject "Milestones" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F8594AB247240F30053A911 /* Debug */,
+				8F8594AC247240F30053A911 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F8594AD247240F30053A911 /* Build configuration list for PBXNativeTarget "Milestones" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F8594AE247240F30053A911 /* Debug */,
+				8F8594AF247240F30053A911 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F8594B0247240F30053A911 /* Build configuration list for PBXNativeTarget "MilestonesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F8594B1247240F30053A911 /* Debug */,
+				8F8594B2247240F30053A911 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8F06DA2E24743C6C00AA5451 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8F06DA2F24743C6C00AA5451 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F06DA2E24743C6C00AA5451 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 8F859486247240F10053A911 /* Project object */;
+}
