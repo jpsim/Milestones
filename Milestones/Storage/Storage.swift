@@ -2,7 +2,7 @@ import Foundation
 
 enum Storage {
     private enum Error: Swift.Error {
-        case noCachesDirectory
+        case noDocumentDirectory
     }
 
     static let documentDirectory = FileManager.default
@@ -13,7 +13,7 @@ enum Storage {
 
     static func persist(dates: [Milestone]) throws {
         guard let documentDirectory = self.documentDirectory else {
-            throw Error.noCachesDirectory
+            throw Error.noDocumentDirectory
         }
 
         let fileURL = documentDirectory.appendingPathComponent(fileName)
@@ -23,7 +23,7 @@ enum Storage {
 
     static func loadFromDisk() throws -> [Milestone] {
         guard let documentDirectory = self.documentDirectory else {
-            throw Error.noCachesDirectory
+            throw Error.noDocumentDirectory
         }
 
         let fileURL = documentDirectory.appendingPathComponent(fileName)
