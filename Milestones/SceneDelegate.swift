@@ -19,7 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                     persist: { try? Storage.persist(dates: $0) },
                     startOfDay: { calendar.startOfDay(for: Date()) },
                     calendar: calendar,
-                    mainQueue: DispatchQueue.main.eraseToAnyScheduler()
+                    mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
+                    persistenceQueue: DispatchQueue(label: "com.jpsim.Milestones.persistence").eraseToAnyScheduler()
                 )
             )
         )

@@ -25,7 +25,8 @@ class AppReducerTests: XCTestCase {
                 persist: { _ in },
                 startOfDay: { Date(timeIntervalSinceReferenceDate: secondsElapsed) },
                 calendar: Calendar(identifier: .gregorian),
-                mainQueue: scheduler.eraseToAnyScheduler()
+                mainQueue: scheduler.eraseToAnyScheduler(),
+                persistenceQueue: scheduler.eraseToAnyScheduler()
             )
         )
 
@@ -47,7 +48,8 @@ class AppReducerTests: XCTestCase {
                     )
                 ]
             },
-            .send(.setTimerActive(false)) { _ in }
+            .send(.setTimerActive(false)) { _ in },
+            .do { self.scheduler.advance(by: 1) }
         )
     }
 
@@ -71,13 +73,17 @@ class AppReducerTests: XCTestCase {
                 persist: { persistedValues.append($0) },
                 startOfDay: { fatalError() },
                 calendar: Calendar(identifier: .gregorian),
-                mainQueue: scheduler.eraseToAnyScheduler()
+                mainQueue: scheduler.eraseToAnyScheduler(),
+                persistenceQueue: scheduler.eraseToAnyScheduler()
             )
         )
 
-        store.assert(.send(.milestone(index: 0, action: .delete)) {
-            $0.milestones = []
-        })
+        store.assert(
+            .send(.milestone(index: 0, action: .delete)) {
+                $0.milestones = []
+            },
+            .do { self.scheduler.advance(by: 1) }
+        )
 
         XCTAssertEqual(persistedValues, [[]])
     }
@@ -93,7 +99,8 @@ class AppReducerTests: XCTestCase {
                 persist: { persistedValues.append($0) },
                 startOfDay: { Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7) },
                 calendar: Calendar(identifier: .gregorian),
-                mainQueue: scheduler.eraseToAnyScheduler()
+                mainQueue: scheduler.eraseToAnyScheduler(),
+                persistenceQueue: scheduler.eraseToAnyScheduler()
             )
         )
 
@@ -106,9 +113,12 @@ class AppReducerTests: XCTestCase {
             isEditing: true
         )
 
-        store.assert(.send(.addButtonTapped) {
-            $0.milestones = [expectedMilestone]
-        })
+        store.assert(
+            .send(.addButtonTapped) {
+                $0.milestones = [expectedMilestone]
+            },
+            .do { self.scheduler.advance(by: 1) }
+        )
 
         XCTAssertEqual(persistedValues, [[expectedMilestone]])
     }
@@ -142,7 +152,8 @@ class AppReducerTests: XCTestCase {
                 persist: { persistedValues.append($0) },
                 startOfDay: { fatalError() },
                 calendar: Calendar(identifier: .gregorian),
-                mainQueue: scheduler.eraseToAnyScheduler()
+                mainQueue: scheduler.eraseToAnyScheduler(),
+                persistenceQueue: scheduler.eraseToAnyScheduler()
             )
         )
 
@@ -168,7 +179,8 @@ class AppReducerTests: XCTestCase {
         store.assert(
             .send(.milestone(index: 0, action: .setTitle("C"))) {
                 $0.milestones = expectedMilestones
-            }
+            },
+            .do { self.scheduler.advance(by: 1) }
         )
 
         XCTAssertEqual(persistedValues, [expectedMilestones])

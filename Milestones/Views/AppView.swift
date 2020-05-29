@@ -57,7 +57,8 @@ struct AppView_Previews: PreviewProvider {
                 persist: { _ in },
                 startOfDay: Date.init,
                 calendar: .current,
-                mainQueue: DispatchQueue.main.eraseToAnyScheduler()
+                mainQueue: DispatchQueue.main.eraseToAnyScheduler(),
+                persistenceQueue: DispatchQueue.main.eraseToAnyScheduler()
             )
         ))
     }

@@ -32,6 +32,7 @@ struct AppEnvironment {
     var startOfDay: () -> Date
     var calendar: Calendar
     var mainQueue: AnySchedulerOf<DispatchQueue>
+    var persistenceQueue: AnySchedulerOf<DispatchQueue>
 }
 
 // MARK: - Reducer
@@ -64,16 +65,42 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
                           isEditing: true)
             )
             state.milestones.sort()
-            let milestones = state.milestones
-            return .fireAndForget { environment.persist(milestones) }
+            return .none
         case .milestone(index: let index, action: .delete):
             state.milestones.remove(at: index)
-            let milestones = state.milestones
-            return .fireAndForget { environment.persist(milestones) }
+            return .none
         case .milestone:
             state.milestones.sort()
-            let milestones = state.milestones
-            return .fireAndForget { environment.persist(milestones) }
+            return .none
         }
     }
 )
+.persisting()
+
+// MARK: - Persistence
+
+private struct PersistID: Hashable {}
+
+private extension Reducer where State == AppState, Environment == AppEnvironment {
+    /// Persists milestones when they change.
+    func persisting() -> Reducer {
+        return Reducer { state, action, environment in
+            // Run the upstream app reducer like normal if milestones don't change.
+            let previousState = state
+            let effect = self(&state, action, environment)
+            let newMilestones = state.milestones
+            guard newMilestones != previousState.milestones else {
+                return effect
+            }
+
+            // If milestones change, persist in a debounced fashion in the background.
+            return .merge(
+                effect,
+                Effect.fireAndForget { environment.persist(newMilestones) }
+                    .subscribe(on: environment.persistenceQueue)
+                    .eraseToEffect()
+                    .debounce(id: PersistID(), for: 1, scheduler: environment.persistenceQueue)
+            )
+        }
+    }
+}
