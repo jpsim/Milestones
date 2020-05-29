@@ -1,3 +1,4 @@
+import Combine
 import ComposableArchitecture
 import Foundation
 
@@ -22,6 +23,7 @@ enum AppAction: Equatable {
     case timerTicked
     case addButtonTapped
     case milestone(index: Int, action: MilestoneAction)
+    case persistToDisk
 }
 
 // MARK: - Environment
@@ -72,6 +74,8 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
         case .milestone:
             state.milestones.sort()
             return .none
+        case .persistToDisk:
+            return .none
         }
     }
 )
@@ -81,26 +85,38 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
 
 private struct PersistID: Hashable {}
 
-private extension Reducer where State == AppState, Environment == AppEnvironment {
+private extension Reducer where State == AppState, Action == AppAction, Environment == AppEnvironment {
     /// Persists milestones when they change.
     func persisting() -> Reducer {
         return Reducer { state, action, environment in
-            // Run the upstream app reducer like normal if milestones don't change.
+            // Handle the `.persistToDisk` action specifically.
+            let forcePersist = action == .persistToDisk
+
+            // Run the upstream app reducer.
             let previousState = state
             let effect = self(&state, action, environment)
             let newMilestones = state.milestones
-            guard newMilestones != previousState.milestones else {
+
+            let persistEffect: Effect<AppAction, Never>
+            if forcePersist {
+                // If we're forcing persistence, do so synchronously.
+                persistEffect = Effect.fireAndForget { environment.persist(newMilestones) }
+                    .cancellable(id: PersistID())
+            } else if newMilestones != previousState.milestones {
+                // Otherwise persist in the background only if the milestones have changed.
+                // Debounce every 10 seconds to avoid thrash.
+                persistEffect = Effect.fireAndForget { environment.persist(newMilestones) }
+                    .subscribe(on: environment.persistenceQueue)
+                    .eraseToEffect()
+                    .debounce(id: PersistID(), for: 10, scheduler: environment.persistenceQueue)
+            } else {
+                // If we're not forcing persistence, and the milestones haven't changed, immediately return the upstream
+                // reducer's effect.
                 return effect
             }
 
             // If milestones change, persist in a debounced fashion in the background.
-            return .merge(
-                effect,
-                Effect.fireAndForget { environment.persist(newMilestones) }
-                    .subscribe(on: environment.persistenceQueue)
-                    .eraseToEffect()
-                    .debounce(id: PersistID(), for: 1, scheduler: environment.persistenceQueue)
-            )
+            return .merge(effect, persistEffect)
         }
     }
 }

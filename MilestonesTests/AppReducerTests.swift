@@ -3,7 +3,8 @@ import ComposableArchitecture
 import XCTest
 
 class AppReducerTests: XCTestCase {
-    let scheduler = DispatchQueue.testScheduler
+    let mainScheduler = DispatchQueue.testScheduler
+    let persistenceScheduler = DispatchQueue.testScheduler
 
     func testTimer() {
         let milestone = Milestone(
@@ -25,15 +26,15 @@ class AppReducerTests: XCTestCase {
                 persist: { _ in },
                 startOfDay: { Date(timeIntervalSinceReferenceDate: secondsElapsed) },
                 calendar: Calendar(identifier: .gregorian),
-                mainQueue: scheduler.eraseToAnyScheduler(),
-                persistenceQueue: scheduler.eraseToAnyScheduler()
+                mainQueue: mainScheduler.eraseToAnyScheduler(),
+                persistenceQueue: persistenceScheduler.eraseToAnyScheduler()
             )
         )
 
         store.assert(
             .send(.setTimerActive(true)) { _ in },
             .do {
-                self.scheduler.advance(by: 1)
+                self.mainScheduler.advance(by: 1)
                 secondsElapsed += 1
             },
             .receive(.timerTicked) {
@@ -49,7 +50,7 @@ class AppReducerTests: XCTestCase {
                 ]
             },
             .send(.setTimerActive(false)) { _ in },
-            .do { self.scheduler.advance(by: 1) }
+            .send(.persistToDisk)
         )
     }
 
@@ -73,8 +74,8 @@ class AppReducerTests: XCTestCase {
                 persist: { persistedValues.append($0) },
                 startOfDay: { fatalError() },
                 calendar: Calendar(identifier: .gregorian),
-                mainQueue: scheduler.eraseToAnyScheduler(),
-                persistenceQueue: scheduler.eraseToAnyScheduler()
+                mainQueue: mainScheduler.eraseToAnyScheduler(),
+                persistenceQueue: persistenceScheduler.eraseToAnyScheduler()
             )
         )
 
@@ -82,7 +83,7 @@ class AppReducerTests: XCTestCase {
             .send(.milestone(index: 0, action: .delete)) {
                 $0.milestones = []
             },
-            .do { self.scheduler.advance(by: 1) }
+            .send(.persistToDisk)
         )
 
         XCTAssertEqual(persistedValues, [[]])
@@ -99,8 +100,8 @@ class AppReducerTests: XCTestCase {
                 persist: { persistedValues.append($0) },
                 startOfDay: { Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7) },
                 calendar: Calendar(identifier: .gregorian),
-                mainQueue: scheduler.eraseToAnyScheduler(),
-                persistenceQueue: scheduler.eraseToAnyScheduler()
+                mainQueue: mainScheduler.eraseToAnyScheduler(),
+                persistenceQueue: persistenceScheduler.eraseToAnyScheduler()
             )
         )
 
@@ -117,7 +118,7 @@ class AppReducerTests: XCTestCase {
             .send(.addButtonTapped) {
                 $0.milestones = [expectedMilestone]
             },
-            .do { self.scheduler.advance(by: 1) }
+            .send(.persistToDisk)
         )
 
         XCTAssertEqual(persistedValues, [[expectedMilestone]])
@@ -152,8 +153,8 @@ class AppReducerTests: XCTestCase {
                 persist: { persistedValues.append($0) },
                 startOfDay: { fatalError() },
                 calendar: Calendar(identifier: .gregorian),
-                mainQueue: scheduler.eraseToAnyScheduler(),
-                persistenceQueue: scheduler.eraseToAnyScheduler()
+                mainQueue: mainScheduler.eraseToAnyScheduler(),
+                persistenceQueue: persistenceScheduler.eraseToAnyScheduler()
             )
         )
 
@@ -180,9 +181,79 @@ class AppReducerTests: XCTestCase {
             .send(.milestone(index: 0, action: .setTitle("C"))) {
                 $0.milestones = expectedMilestones
             },
-            .do { self.scheduler.advance(by: 1) }
+            .send(.persistToDisk)
         )
 
         XCTAssertEqual(persistedValues, [expectedMilestones])
+    }
+
+    func testDebouncedPersistence() {
+        let milestone = Milestone(
+            id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
+            calendar: Calendar(identifier: .gregorian),
+            title: "A",
+            today: Date(timeIntervalSinceReferenceDate: 0),
+            date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
+            isEditing: false
+        )
+
+        var persistedValues = [[Milestone]]()
+
+        let store = TestStore(
+            initialState: AppState(milestones: [milestone]),
+            reducer: appReducer,
+            environment: AppEnvironment(
+                uuid: { fatalError() },
+                persist: { persistedValues.append($0) },
+                startOfDay: { fatalError() },
+                calendar: Calendar(identifier: .gregorian),
+                mainQueue: mainScheduler.eraseToAnyScheduler(),
+                persistenceQueue: persistenceScheduler.eraseToAnyScheduler()
+            )
+        )
+
+        store.assert(
+            .send(.milestone(index: 0, action: .setTitle("B"))) {
+                $0.milestones = [
+                    Milestone(
+                        id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
+                        calendar: Calendar(identifier: .gregorian),
+                        title: "B",
+                        today: Date(timeIntervalSinceReferenceDate: 0),
+                        date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
+                        isEditing: false
+                    )
+                ]
+            },
+            .do {
+                self.persistenceScheduler.advance(by: 9)
+            },
+            .send(.milestone(index: 0, action: .setTitle("C"))) {
+                $0.milestones = [
+                    Milestone(
+                        id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
+                        calendar: Calendar(identifier: .gregorian),
+                        title: "C",
+                        today: Date(timeIntervalSinceReferenceDate: 0),
+                        date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
+                        isEditing: false
+                    )
+                ]
+            },
+            .do {
+                self.persistenceScheduler.advance(by: 10)
+            }
+        )
+
+        XCTAssertEqual(persistedValues, [[
+            Milestone(
+                id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
+                calendar: Calendar(identifier: .gregorian),
+                title: "C",
+                today: Date(timeIntervalSinceReferenceDate: 0),
+                date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
+                isEditing: false
+            )
+        ]])
     }
 }
