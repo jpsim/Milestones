@@ -5,29 +5,29 @@ enum Storage {
         case noCachesDirectory
     }
 
-    static let cachesDirectory = FileManager.default
-        .urls(for: .cachesDirectory, in: .userDomainMask)
+    static let documentDirectory = FileManager.default
+        .urls(for: .documentDirectory, in: .userDomainMask)
         .first
 
     static let fileName = "milestones.plist"
 
     static func persist(dates: [Milestone]) throws {
-        guard let cachesDirectory = self.cachesDirectory else {
+        guard let documentDirectory = self.documentDirectory else {
             throw Error.noCachesDirectory
         }
 
-        let cacheFileURL = cachesDirectory.appendingPathComponent(fileName)
+        let fileURL = documentDirectory.appendingPathComponent(fileName)
         let data = try PropertyListEncoder().encode(dates)
-        try data.write(to: cacheFileURL)
+        try data.write(to: fileURL)
     }
 
     static func loadFromDisk() throws -> [Milestone] {
-        guard let cachesDirectory = self.cachesDirectory else {
+        guard let documentDirectory = self.documentDirectory else {
             throw Error.noCachesDirectory
         }
 
-        let cacheFileURL = cachesDirectory.appendingPathComponent(fileName)
-        let cacheData = try Data(contentsOf: cacheFileURL)
-        return try PropertyListDecoder().decode([Milestone].self, from: cacheData)
+        let fileURL = documentDirectory.appendingPathComponent(fileName)
+        let data = try Data(contentsOf: fileURL)
+        return try PropertyListDecoder().decode([Milestone].self, from: data)
     }
 }
