@@ -1,4 +1,4 @@
-@testable import Milestones
+@testable import MilestonesCore
 import XCTest
 
 class MilestoneTests: XCTestCase {

@@ -3,10 +3,14 @@ import SwiftUI
 
 // MARK: - View
 
-struct AppView: View {
+public struct AppView: View {
     let store: Store<AppState, AppAction>
 
-    var body: some View {
+    public func sceneDidDisconnect() {
+        ViewStore(store).send(.persistToDisk)
+    }
+
+    public var body: some View {
         NavigationView {
             WithViewStore(store) { viewStore in
                 List {

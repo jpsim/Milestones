@@ -12,11 +12,13 @@ extension Array where Element == Milestone {
 
 private extension Milestone {
     init(title: String, month: Int, day: Int) {
-        self.id = UUID()
-        self.title = title
-        self.date = DateComponents(calendar: .current, year: 2020, month: month, day: day).date!
-        self.today = Date()
-        self.calendar = .current
-        self.isEditing = false
+        self.init(
+            id: UUID(),
+            calendar: .current,
+            title: title,
+            today: Date(),
+            date: DateComponents(calendar: .current, year: 2020, month: month, day: day).date!,
+            isEditing: false
+        )
     }
 }

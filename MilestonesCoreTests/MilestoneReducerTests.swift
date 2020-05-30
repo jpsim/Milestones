@@ -1,5 +1,5 @@
 import ComposableArchitecture
-@testable import Milestones
+@testable import MilestonesCore
 import XCTest
 
 class MilestoneReducerTests: XCTestCase {
