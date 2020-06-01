@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F2E55E02485450C00C8628A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F2E55DF2485450C00C8628A /* NotificationCenter.framework */; };
+		8F2E55E32485450C00C8628A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2E55E22485450C00C8628A /* TodayViewController.swift */; };
+		8F2E55E62485450C00C8628A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F2E55E42485450C00C8628A /* MainInterface.storyboard */; };
+		8F2E55EA2485450C00C8628A /* Today.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8F2E55DE2485450C00C8628A /* Today.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8F2E55F0248551EF00C8628A /* TodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2E55EF248551EF00C8628A /* TodayView.swift */; };
+		8F2E55F3248559B600C8628A /* MilestoneBaseCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2E55F2248559B600C8628A /* MilestoneBaseCellView.swift */; };
+		8F830E4A248B0BAE0016734F /* MilestonesCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC60DFA248304C000D4C9D7 /* MilestonesCore.framework */; };
 		8F859494247240F10053A911 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F859493247240F10053A911 /* SceneDelegate.swift */; };
 		8F859498247240F30053A911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F859497247240F30053A911 /* Assets.xcassets */; };
 		8F85949B247240F30053A911 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F85949A247240F30053A911 /* Preview Assets.xcassets */; };
@@ -29,13 +36,27 @@
 		8FC60E29248307DE00D4C9D7 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F859495247240F10053A911 /* AppView.swift */; };
 		8FC60E2A248307DE00D4C9D7 /* MilestoneCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F06DA3124743F2700AA5451 /* MilestoneCellView.swift */; };
 		8FC60E2B248307DE00D4C9D7 /* MilestoneEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9241AB247B3724004681F1 /* MilestoneEditView.swift */; };
-		8FC60E2D248309A200D4C9D7 /* AppView+Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC60E2C248309A200D4C9D7 /* AppView+Live.swift */; };
+		8FC60E2D248309A200D4C9D7 /* Views+Live.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC60E2C248309A200D4C9D7 /* Views+Live.swift */; };
 		8FC60E2E24830AE000D4C9D7 /* AppReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9241B9247C1FBB004681F1 /* AppReducerTests.swift */; };
 		8FC60E2F24830AE000D4C9D7 /* MilestoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9241B7247C1E6C004681F1 /* MilestoneTests.swift */; };
 		8FC60E3024830AE000D4C9D7 /* MilestoneReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8594A8247240F30053A911 /* MilestoneReducerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8F2E55E82485450C00C8628A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F859486247240F10053A911 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F2E55DD2485450C00C8628A;
+			remoteInfo = Today;
+		};
+		8F830E48248B0BA90016734F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F859486247240F10053A911 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8FC60DF9248304C000D4C9D7;
+			remoteInfo = MilestonesCore;
+		};
 		8FC60E04248304C000D4C9D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8F859486247240F10053A911 /* Project object */;
@@ -60,6 +81,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		8F2E55EB2485450C00C8628A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8F2E55EA2485450C00C8628A /* Today.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8FC60E11248304C100D4C9D7 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -77,6 +109,14 @@
 		8F06DA3124743F2700AA5451 /* MilestoneCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneCellView.swift; sourceTree = "<group>"; };
 		8F06DA3324743F6C00AA5451 /* Milestones+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Milestones+Mock.swift"; sourceTree = "<group>"; };
 		8F06DA3524743FB200AA5451 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		8F2E55DE2485450C00C8628A /* Today.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Today.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F2E55DF2485450C00C8628A /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		8F2E55E22485450C00C8628A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		8F2E55E52485450C00C8628A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		8F2E55E72485450C00C8628A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F2E55EF248551EF00C8628A /* TodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayView.swift; sourceTree = "<group>"; };
+		8F2E55F12485544700C8628A /* Today.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Today.entitlements; sourceTree = "<group>"; };
+		8F2E55F2248559B600C8628A /* MilestoneBaseCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneBaseCellView.swift; sourceTree = "<group>"; };
 		8F85948E247240F10053A911 /* Milestones.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Milestones.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F859493247240F10053A911 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8F859495247240F10053A911 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
@@ -102,10 +142,19 @@
 		8FC60DFD248304C000D4C9D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FC60E02248304C000D4C9D7 /* MilestonesCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MilestonesCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FC60E0B248304C000D4C9D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8FC60E2C248309A200D4C9D7 /* AppView+Live.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppView+Live.swift"; sourceTree = "<group>"; };
+		8FC60E2C248309A200D4C9D7 /* Views+Live.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Views+Live.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8F2E55DB2485450C00C8628A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F830E4A248B0BAE0016734F /* MilestonesCore.framework in Frameworks */,
+				8F2E55E02485450C00C8628A /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8F85948B247240F10053A911 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -133,12 +182,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F2E55E12485450C00C8628A /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				8F2E55F12485544700C8628A /* Today.entitlements */,
+				8F2E55E22485450C00C8628A /* TodayViewController.swift */,
+				8F2E55E42485450C00C8628A /* MainInterface.storyboard */,
+				8F2E55E72485450C00C8628A /* Info.plist */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
 		8F859485247240F10053A911 = {
 			isa = PBXGroup;
 			children = (
 				8F859490247240F10053A911 /* Milestones */,
 				8FC60DFB248304C000D4C9D7 /* MilestonesCore */,
 				8FC60E08248304C000D4C9D7 /* MilestonesCoreTests */,
+				8F2E55E12485450C00C8628A /* Today */,
 				8F85948F247240F10053A911 /* Products */,
 				8FC60E18248304CF00D4C9D7 /* Frameworks */,
 			);
@@ -150,6 +211,7 @@
 				8F85948E247240F10053A911 /* Milestones.app */,
 				8FC60DFA248304C000D4C9D7 /* MilestonesCore.framework */,
 				8FC60E02248304C000D4C9D7 /* MilestonesCoreTests.xctest */,
+				8F2E55DE2485450C00C8628A /* Today.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,8 +241,10 @@
 			isa = PBXGroup;
 			children = (
 				8F859495247240F10053A911 /* AppView.swift */,
+				8F2E55F2248559B600C8628A /* MilestoneBaseCellView.swift */,
 				8F06DA3124743F2700AA5451 /* MilestoneCellView.swift */,
 				8F9241AB247B3724004681F1 /* MilestoneEditView.swift */,
+				8F2E55EF248551EF00C8628A /* TodayView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,10 +253,10 @@
 			isa = PBXGroup;
 			children = (
 				8F90490D247E2E820083664F /* Calendar+Milestones.swift */,
-				8FC60E2C248309A200D4C9D7 /* AppView+Live.swift */,
 				8F9241A7247A1C55004681F1 /* DateComponentsFormatter+Milestones.swift */,
 				8F9241A9247A1CBF004681F1 /* DateFormatter+Milestones.swift */,
 				8F06DA3324743F6C00AA5451 /* Milestones+Mock.swift */,
+				8FC60E2C248309A200D4C9D7 /* Views+Live.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -243,6 +307,7 @@
 		8FC60E18248304CF00D4C9D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8F2E55DF2485450C00C8628A /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -269,6 +334,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		8F2E55DD2485450C00C8628A /* Today */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F2E55EE2485450C00C8628A /* Build configuration list for PBXNativeTarget "Today" */;
+			buildPhases = (
+				8F2E55DA2485450C00C8628A /* Sources */,
+				8F2E55DB2485450C00C8628A /* Frameworks */,
+				8F2E55DC2485450C00C8628A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8F830E49248B0BA90016734F /* PBXTargetDependency */,
+			);
+			name = Today;
+			productName = Today;
+			productReference = 8F2E55DE2485450C00C8628A /* Today.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		8F85948D247240F10053A911 /* Milestones */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8F8594AD247240F30053A911 /* Build configuration list for PBXNativeTarget "Milestones" */;
@@ -277,11 +360,13 @@
 				8F85948B247240F10053A911 /* Frameworks */,
 				8F85948C247240F10053A911 /* Resources */,
 				8FC60E11248304C100D4C9D7 /* Embed Frameworks */,
+				8F2E55EB2485450C00C8628A /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				8FC60E0E248304C000D4C9D7 /* PBXTargetDependency */,
+				8F2E55E92485450C00C8628A /* PBXTargetDependency */,
 			);
 			name = Milestones;
 			packageProductDependencies = (
@@ -340,6 +425,9 @@
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "JP Simard";
 				TargetAttributes = {
+					8F2E55DD2485450C00C8628A = {
+						CreatedOnToolsVersion = 11.5;
+					};
 					8F85948D247240F10053A911 = {
 						CreatedOnToolsVersion = 11.4;
 					};
@@ -371,11 +459,20 @@
 				8F85948D247240F10053A911 /* Milestones */,
 				8FC60DF9248304C000D4C9D7 /* MilestonesCore */,
 				8FC60E01248304C000D4C9D7 /* MilestonesCoreTests */,
+				8F2E55DD2485450C00C8628A /* Today */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8F2E55DC2485450C00C8628A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F2E55E62485450C00C8628A /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8F85948C247240F10053A911 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -403,6 +500,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8F2E55DA2485450C00C8628A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F2E55E32485450C00C8628A /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8F85948A247240F10053A911 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -415,16 +520,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F2E55F3248559B600C8628A /* MilestoneBaseCellView.swift in Sources */,
 				8FC60E26248307DE00D4C9D7 /* DateFormatter+Milestones.swift in Sources */,
 				8FC60E28248307DE00D4C9D7 /* Storage.swift in Sources */,
 				8FC60E1B248304DD00D4C9D7 /* Milestone.swift in Sources */,
 				8FC60E27248307DE00D4C9D7 /* Milestones+Mock.swift in Sources */,
 				8FC60E25248307DE00D4C9D7 /* DateComponentsFormatter+Milestones.swift in Sources */,
 				8FC60E21248307DE00D4C9D7 /* CalendarHeaderView.swift in Sources */,
+				8F2E55F0248551EF00C8628A /* TodayView.swift in Sources */,
 				8FC60E1C2483075500D4C9D7 /* AppState.swift in Sources */,
 				8FC60E2B248307DE00D4C9D7 /* MilestoneEditView.swift in Sources */,
 				8FC60E24248307DE00D4C9D7 /* Calendar+Milestones.swift in Sources */,
-				8FC60E2D248309A200D4C9D7 /* AppView+Live.swift in Sources */,
+				8FC60E2D248309A200D4C9D7 /* Views+Live.swift in Sources */,
 				8FC60E2A248307DE00D4C9D7 /* MilestoneCellView.swift in Sources */,
 				8FC60E29248307DE00D4C9D7 /* AppView.swift in Sources */,
 				8FC60E20248307DE00D4C9D7 /* CalendarView.swift in Sources */,
@@ -446,6 +553,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8F2E55E92485450C00C8628A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F2E55DD2485450C00C8628A /* Today */;
+			targetProxy = 8F2E55E82485450C00C8628A /* PBXContainerItemProxy */;
+		};
+		8F830E49248B0BA90016734F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8FC60DF9248304C000D4C9D7 /* MilestonesCore */;
+			targetProxy = 8F830E48248B0BA90016734F /* PBXContainerItemProxy */;
+		};
 		8FC60E05248304C000D4C9D7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8FC60DF9248304C000D4C9D7 /* MilestonesCore */;
@@ -464,6 +581,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		8F2E55E42485450C00C8628A /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8F2E55E52485450C00C8628A /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		8F85949C247240F30053A911 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -475,6 +600,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8F2E55EC2485450C00C8628A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Today/Today.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X4ST43AL9W;
+				INFOPLIST_FILE = Today/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jpsim.milestones.Today;
+				PRODUCT_NAME = Today;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8F2E55ED2485450C00C8628A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Today/Today.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X4ST43AL9W;
+				INFOPLIST_FILE = Today/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 0.0.2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jpsim.milestones.Today;
+				PRODUCT_NAME = Today;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		8F8594AB247240F30053A911 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -640,6 +809,7 @@
 		8FC60E12248304C100D4C9D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -668,6 +838,7 @@
 		8FC60E13248304C100D4C9D7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -738,6 +909,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8F2E55EE2485450C00C8628A /* Build configuration list for PBXNativeTarget "Today" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F2E55EC2485450C00C8628A /* Debug */,
+				8F2E55ED2485450C00C8628A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8F859489247240F10053A911 /* Build configuration list for PBXProject "Milestones" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
