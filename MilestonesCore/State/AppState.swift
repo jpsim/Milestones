@@ -104,11 +104,11 @@ private extension Reducer where State == AppState, Action == AppAction, Environm
                     .cancellable(id: PersistID())
             } else if newMilestones != previousState.milestones {
                 // Otherwise persist in the background only if the milestones have changed.
-                // Debounce every 10 seconds to avoid thrash.
+                // Debounce every second to avoid disk thrash.
                 persistEffect = Effect.fireAndForget { environment.persist(newMilestones) }
                     .subscribe(on: environment.persistenceQueue)
                     .eraseToEffect()
-                    .debounce(id: PersistID(), for: 10, scheduler: environment.persistenceQueue)
+                    .debounce(id: PersistID(), for: 1, scheduler: environment.persistenceQueue)
             } else {
                 // If we're not forcing persistence, and the milestones haven't changed, immediately return the upstream
                 // reducer's effect.

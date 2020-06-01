@@ -226,7 +226,7 @@ class AppReducerTests: XCTestCase {
                 ]
             },
             .do {
-                self.persistenceScheduler.advance(by: 9)
+                self.persistenceScheduler.advance(by: 0.9)
             },
             .send(.milestone(index: 0, action: .setTitle("C"))) {
                 $0.milestones = [
@@ -241,7 +241,7 @@ class AppReducerTests: XCTestCase {
                 ]
             },
             .do {
-                self.persistenceScheduler.advance(by: 10)
+                self.persistenceScheduler.advance(by: 1)
             }
         )
 
