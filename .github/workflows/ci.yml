@@ -1,0 +1,20 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - '*'
+
+jobs:
+  build:
+    name: iOS
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Run tests
+        run: xcodebuild test \
+          -scheme MilestonesCore \
+          -destination platform="iOS Simulator,name=iPhone 11 Pro Max,OS=13.5"
