@@ -15,6 +15,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Run tests
-        run: xcodebuild test \
-          -scheme MilestonesCore \
-          -destination platform="iOS Simulator,name=iPhone 11 Pro Max,OS=13.5"
+        run: xcodebuild test -scheme MilestonesCore -destination platform="iOS Simulator,name=iPhone 11 Pro Max,OS=13.5"
