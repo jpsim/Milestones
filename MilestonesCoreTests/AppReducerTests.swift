@@ -1,10 +1,66 @@
 import ComposableArchitecture
 @testable import MilestonesCore
+import SwiftUI
 import XCTest
 
 class AppReducerTests: XCTestCase {
     let mainScheduler = DispatchQueue.testScheduler
     let persistenceScheduler = DispatchQueue.testScheduler
+
+    func testEditMode() {
+        let store = TestStore(
+            initialState: AppState(milestones: []),
+            reducer: appReducer,
+            environment: AppEnvironment(
+                uuid: { fatalError() },
+                persist: { _ in fatalError() },
+                startOfDay: { fatalError() },
+                calendar: Calendar(identifier: .gregorian),
+                mainQueue: mainScheduler.eraseToAnyScheduler(),
+                persistenceQueue: persistenceScheduler.eraseToAnyScheduler()
+            )
+        )
+
+        store.assert(
+            .send(.editModeChanged(.active)) { $0.editMode = .active },
+            .send(.editModeChanged(.inactive)) { $0.editMode = .inactive }
+        )
+    }
+
+    func testEditModeDelete() {
+        let milestone = Milestone(
+            id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
+            calendar: Calendar(identifier: .gregorian),
+            title: "Big Day",
+            today: Date(timeIntervalSinceReferenceDate: 0),
+            date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
+            isEditing: false
+        )
+
+        var persistedValues = [[Milestone]]()
+
+        let store = TestStore(
+            initialState: AppState(milestones: [milestone]),
+            reducer: appReducer,
+            environment: AppEnvironment(
+                uuid: { fatalError() },
+                persist: { persistedValues.append($0) },
+                startOfDay: { fatalError() },
+                calendar: Calendar(identifier: .gregorian),
+                mainQueue: mainScheduler.eraseToAnyScheduler(),
+                persistenceQueue: persistenceScheduler.eraseToAnyScheduler()
+            )
+        )
+
+        store.assert(
+            .send(.delete([0])) {
+                $0.milestones = []
+            },
+            .send(.persistToDisk)
+        )
+
+        XCTAssertEqual(persistedValues, [[]])
+    }
 
     func testTimer() {
         let milestone = Milestone(
