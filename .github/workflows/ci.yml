@@ -16,5 +16,7 @@ jobs:
       DEVELOPER_DIR: /Applications/Xcode_11.5.app
     steps:
       - uses: actions/checkout@v1
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v2
       - name: Run tests
-        run: xcodebuild test -scheme MilestonesCore -destination platform="iOS Simulator,name=iPhone 11 Pro Max"
+        run: xcodebuild test -scheme MilestonesCore -destination platform="iOS Simulator,name=iPhone 11 Pro Max,OS=13.5"
