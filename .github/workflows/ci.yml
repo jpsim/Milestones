@@ -12,6 +12,8 @@ jobs:
   build:
     name: iOS
     runs-on: macos-latest
+   env:
+      DEVELOPER_DIR: /Applications/Xcode_11.5.app
     steps:
       - uses: actions/checkout@v1
       - name: Run tests
