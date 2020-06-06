@@ -35,9 +35,12 @@ public struct AppView: View {
                     }
                 }
                 .navigationBarTitle("Milestones")
-                .navigationBarItems(trailing: Button("Add") {
-                    viewStore.send(.addButtonTapped)
-                })
+                .navigationBarItems(
+                    leading: EditButton(),
+                    trailing: Button("Add") {
+                        viewStore.send(.addButtonTapped)
+                    }
+                )
                 .onAppear {
                     viewStore.send(.setTimerActive(true))
                 }
