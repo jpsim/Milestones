@@ -33,6 +33,7 @@ public struct AppView: View {
                             }
                         }
                     }
+                    .onDelete { viewStore.send(.delete($0)) }
                 }
                 .navigationBarTitle("Milestones")
                 .navigationBarItems(
@@ -47,6 +48,10 @@ public struct AppView: View {
                 .onDisappear {
                     viewStore.send(.setTimerActive(false))
                 }
+                .environment(
+                  \.editMode,
+                  viewStore.binding(get: { $0.editMode }, send: AppAction.editModeChanged)
+                )
             }
         }
     }

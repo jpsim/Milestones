@@ -1,11 +1,13 @@
 import Combine
 import ComposableArchitecture
 import Foundation
+import SwiftUI
 
 // MARK: - State
 
 struct AppState: Equatable {
     var milestones: [Milestone]
+    var editMode: EditMode = .inactive
 
     mutating func setToday(_ today: Date) {
         milestones = milestones.map { milestone in
@@ -19,6 +21,8 @@ struct AppState: Equatable {
 // MARK: - Action
 
 enum AppAction: Equatable {
+    case editModeChanged(EditMode)
+    case delete(IndexSet)
     case setTimerActive(Bool)
     case timerTicked
     case addButtonTapped
@@ -47,6 +51,12 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
     ),
     Reducer { state, action, environment in
         switch action {
+        case let .editModeChanged(editMode):
+            state.editMode = editMode
+            return .none
+        case let .delete(indexSet):
+            state.milestones.remove(atOffsets: indexSet)
+            return .none
         case .setTimerActive(let timerActive):
             state.setToday(environment.startOfDay())
 
