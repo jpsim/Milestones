@@ -9,8 +9,8 @@ class SnapshotTests: XCTestCase {
     func testCalendarView() {
         let view = CalendarView(
             calendar: Calendar(identifier: .gregorian),
-            startDate: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 8),
-            endDate: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 32)
+            startDate: Date(timeIntervalSince1970: 60 * 60 * 24 * 8),
+            endDate: Date(timeIntervalSince1970: 60 * 60 * 24 * 32)
         )
 
         let vc = UIHostingController(rootView: view)
@@ -23,8 +23,8 @@ class SnapshotTests: XCTestCase {
             id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
             calendar: Calendar(identifier: .gregorian),
             title: "Big Day",
-            today: Date(timeIntervalSinceReferenceDate: 0),
-            date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
+            today: Date(timeIntervalSince1970: 0),
+            date: Date(timeIntervalSince1970: 60 * 60 * 24 * 7),
             isEditing: false
         )
 
@@ -34,7 +34,7 @@ class SnapshotTests: XCTestCase {
             environment: AppEnvironment(
                 uuid: { fatalError() },
                 persist: { _ in fatalError()},
-                startOfDay: { Date(timeIntervalSinceReferenceDate: 0) },
+                startOfDay: { Date(timeIntervalSince1970: 0) },
                 calendar: Calendar(identifier: .gregorian),
                 mainQueue: DispatchQueue.testScheduler.eraseToAnyScheduler(),
                 persistenceQueue: DispatchQueue.testScheduler.eraseToAnyScheduler()
@@ -51,8 +51,8 @@ class SnapshotTests: XCTestCase {
             id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
             calendar: Calendar(identifier: .gregorian),
             title: "Big Day",
-            today: Date(timeIntervalSinceReferenceDate: 0),
-            date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
+            today: Date(timeIntervalSince1970: 0),
+            date: Date(timeIntervalSince1970: 60 * 60 * 24 * 7),
             isEditing: false
         )
 
@@ -62,7 +62,7 @@ class SnapshotTests: XCTestCase {
             environment: AppEnvironment(
                 uuid: { fatalError() },
                 persist: { _ in fatalError()},
-                startOfDay: { Date(timeIntervalSinceReferenceDate: 0) },
+                startOfDay: { Date(timeIntervalSince1970: 0) },
                 calendar: Calendar(identifier: .gregorian),
                 mainQueue: DispatchQueue.testScheduler.eraseToAnyScheduler(),
                 persistenceQueue: DispatchQueue.testScheduler.eraseToAnyScheduler()
@@ -79,8 +79,8 @@ class SnapshotTests: XCTestCase {
             id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
             calendar: Calendar(identifier: .gregorian),
             title: "Big Day",
-            today: Date(timeIntervalSinceReferenceDate: 0),
-            date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
+            today: Date(timeIntervalSince1970: 0),
+            date: Date(timeIntervalSince1970: 60 * 60 * 24 * 7),
             isEditing: false
         )
 
@@ -90,7 +90,7 @@ class SnapshotTests: XCTestCase {
             environment: AppEnvironment(
                 uuid: { fatalError() },
                 persist: { _ in fatalError()},
-                startOfDay: { Date(timeIntervalSinceReferenceDate: 0) },
+                startOfDay: { Date(timeIntervalSince1970: 0) },
                 calendar: Calendar(identifier: .gregorian),
                 mainQueue: DispatchQueue.testScheduler.eraseToAnyScheduler(),
                 persistenceQueue: DispatchQueue.testScheduler.eraseToAnyScheduler()
@@ -107,8 +107,8 @@ class SnapshotTests: XCTestCase {
             id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
             calendar: Calendar(identifier: .gregorian),
             title: "Big Day",
-            today: Date(timeIntervalSinceReferenceDate: 0),
-            date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
+            today: Date(timeIntervalSince1970: 0),
+            date: Date(timeIntervalSince1970: 60 * 60 * 24 * 7),
             isEditing: false
         )
 
