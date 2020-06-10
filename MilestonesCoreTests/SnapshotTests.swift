@@ -102,26 +102,26 @@ class SnapshotTests: XCTestCase {
         assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .dark)), named: "dark-mode")
     }
 
-    func testMilestoneEditView() {
-        let milestone = Milestone(
-            id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
-            calendar: .testCalendar,
-            title: "Big Day",
-            today: Date(timeIntervalSinceReferenceDate: 0),
-            date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
-            isEditing: false
-        )
-
-        let store = Store(
-            initialState: milestone,
-            reducer: milestoneReducer,
-            environment: MilestoneEnvironment()
-        )
-        let view = MilestoneEditView(store: store)
-        let vc = UIHostingController(rootView: view)
-        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .light)), named: "light-mode")
-        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .dark)), named: "dark-mode")
-    }
+//    func testMilestoneEditView() {
+//        let milestone = Milestone(
+//            id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
+//            calendar: .testCalendar,
+//            title: "Big Day",
+//            today: Date(timeIntervalSinceReferenceDate: 0),
+//            date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
+//            isEditing: false
+//        )
+//
+//        let store = Store(
+//            initialState: milestone,
+//            reducer: milestoneReducer,
+//            environment: MilestoneEnvironment()
+//        )
+//        let view = MilestoneEditView(store: store)
+//        let vc = UIHostingController(rootView: view)
+//        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .light)), named: "light-mode")
+//        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .dark)), named: "dark-mode")
+//    }
 }
 
 private extension Calendar {
