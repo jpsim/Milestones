@@ -16,12 +16,5 @@ jobs:
       DEVELOPER_DIR: /Applications/Xcode_11.5.app
     steps:
       - uses: actions/checkout@v1
-      - name: Delete expected snapshots
-        run: rm -rf MilestonesCoreTests/__Snapshots__
       - name: Run tests
-        run: xcodebuild test -scheme MilestonesCore -destination platform="iOS Simulator,name=iPhone 11 Pro Max,OS=13.5" || true
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v1
-        with:
-          name: Snapshots
-          path: MilestonesCoreTests/__Snapshots__
+        run: xcodebuild test -scheme MilestonesCore -destination platform="iOS Simulator,name=iPhone 11 Pro Max,OS=13.5"
