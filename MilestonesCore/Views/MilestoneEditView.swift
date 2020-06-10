@@ -36,6 +36,7 @@ struct MilestoneEditView: View {
                     .labelsHidden()
                     .datePickerStyle(WheelDatePickerStyle())
                     .padding()
+                    .environment(\.timeZone, viewStore.calendar.timeZone)
 
                     Spacer()
                 }
