@@ -5,12 +5,12 @@
     ▿ some:  (fixed)
       - identifier: ""
       - kind: "fixed"
-  ▿ timeZone: GMT (fixed)
-    - identifier: "GMT"
+  ▿ timeZone: GMT+0001 (fixed)
+    - identifier: "GMT+0001"
     - kind: "fixed"
     ▿ abbreviation: Optional<String>
-      - some: "GMT"
-    - secondsFromGMT: 0
+      - some: "GMT+0:01"
+    - secondsFromGMT: 60
     - isDaylightSavingTime: false
   - firstWeekday: 1
   - minimumDaysInFirstWeek: 1
