@@ -8,7 +8,7 @@ import XCTest
 class SnapshotTests: XCTestCase {
     func testCalendarView() {
         let view = CalendarView(
-            calendar: Calendar(identifier: .gregorian),
+            calendar: .testCalendar,
             startDate: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 8),
             endDate: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 32)
         )
@@ -21,7 +21,7 @@ class SnapshotTests: XCTestCase {
     func testAppView() {
         let milestone = Milestone(
             id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
-            calendar: Calendar(identifier: .gregorian),
+            calendar: .testCalendar,
             title: "Big Day",
             today: Date(timeIntervalSinceReferenceDate: 0),
             date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
@@ -49,7 +49,7 @@ class SnapshotTests: XCTestCase {
     func testAppViewEditing() {
         let milestone = Milestone(
             id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
-            calendar: Calendar(identifier: .gregorian),
+            calendar: .testCalendar,
             title: "Big Day",
             today: Date(timeIntervalSinceReferenceDate: 0),
             date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
@@ -77,7 +77,7 @@ class SnapshotTests: XCTestCase {
     func testTodayView() {
         let milestone = Milestone(
             id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
-            calendar: Calendar(identifier: .gregorian),
+            calendar: .testCalendar,
             title: "Big Day",
             today: Date(timeIntervalSinceReferenceDate: 0),
             date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
@@ -105,11 +105,11 @@ class SnapshotTests: XCTestCase {
     func testMilestoneEditView() {
         let milestone = Milestone(
             id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
-            calendar: Calendar(identifier: .gregorian),
+            calendar: .testCalendar,
             title: "Big Day",
             today: Date(timeIntervalSinceReferenceDate: 0),
             date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
-            isEditing: false
+            isEditing: true
         )
 
         let store = Store(
@@ -121,5 +121,14 @@ class SnapshotTests: XCTestCase {
         let vc = UIHostingController(rootView: view)
         assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .light)), named: "light-mode")
         assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .dark)), named: "dark-mode")
+    }
+}
+
+private extension Calendar {
+    static var testCalendar: Calendar {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.timeZone = TimeZone(secondsFromGMT: 0)!
+        calendar.locale = Locale(identifier: "en_US_POSIX")
+        return calendar
     }
 }
