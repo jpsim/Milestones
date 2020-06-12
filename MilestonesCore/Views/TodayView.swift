@@ -14,12 +14,9 @@ public struct TodayView: View {
                     self.store.scope(
                         state: \.milestones,
                         action: AppAction.milestone
-                    )
-                ) { milestoneStore in
-                    WithViewStore(milestoneStore) { milestoneViewStore in
-                        MilestoneBaseCellView(store: milestoneStore)
-                    }
-                }
+                    ),
+                    content: MilestoneBaseCellView.init
+                )
             }
             .onAppear {
                 viewStore.send(.setTimerActive(true))
