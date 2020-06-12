@@ -42,6 +42,7 @@
 		8FC60E2E24830AE000D4C9D7 /* AppReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9241B9247C1FBB004681F1 /* AppReducerTests.swift */; };
 		8FC60E2F24830AE000D4C9D7 /* MilestoneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9241B7247C1E6C004681F1 /* MilestoneTests.swift */; };
 		8FC60E3024830AE000D4C9D7 /* MilestoneReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F8594A8247240F30053A911 /* MilestoneReducerTests.swift */; };
+		8FDA89FC2493FA5B00A4AC70 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 8FDA89FB2493FA5B00A4AC70 /* Introspect */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FC60E1A248304CF00D4C9D7 /* ComposableArchitecture in Frameworks */,
+				8FDA89FC2493FA5B00A4AC70 /* Introspect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,6 +398,7 @@
 			name = MilestonesCore;
 			packageProductDependencies = (
 				8FC60E19248304CF00D4C9D7 /* ComposableArchitecture */,
+				8FDA89FB2493FA5B00A4AC70 /* Introspect */,
 			);
 			productName = MilestonesCore;
 			productReference = 8FC60DFA248304C000D4C9D7 /* MilestonesCore.framework */;
@@ -460,6 +463,7 @@
 			packageReferences = (
 				8F06DA2E24743C6C00AA5451 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				8F432C83248BF700001385C6 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
+				8FDA89FA2493FA5B00A4AC70 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 8F85948F247240F10053A911 /* Products */;
 			projectDirPath = "";
@@ -983,6 +987,14 @@
 				minimumVersion = 1.7.2;
 			};
 		};
+		8FDA89FA2493FA5B00A4AC70 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -995,6 +1007,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8F06DA2E24743C6C00AA5451 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		8FDA89FB2493FA5B00A4AC70 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8FDA89FA2493FA5B00A4AC70 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

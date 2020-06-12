@@ -1,4 +1,5 @@
 import ComposableArchitecture
+import Introspect
 import SwiftUI
 
 // MARK: - View
@@ -20,6 +21,9 @@ struct MilestoneEditView: View {
                     "Title",
                     text: viewStore.binding(get: \.title, send: MilestoneAction.setTitle)
                 )
+                .introspectTextField { textField in
+                    textField.becomeFirstResponder()
+                }
                 .font(.title)
                 .padding()
 
