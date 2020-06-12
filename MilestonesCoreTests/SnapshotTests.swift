@@ -6,6 +6,11 @@ import UIKit
 import XCTest
 
 class SnapshotTests: XCTestCase {
+    override func setUp() {
+        super.setUp()
+        diffTool = "ksdiff"
+    }
+
     func testCalendarView() {
         let view = CalendarView(
             calendar: .testCalendar,
