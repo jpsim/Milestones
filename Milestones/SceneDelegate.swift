@@ -13,10 +13,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = (scene as? UIWindowScene).map(UIWindow.init)
         window?.rootViewController = UIHostingController(rootView: appView)
         window?.makeKeyAndVisible()
+
+        if connectionOptions.shortcutItem != nil {
+            appView.performAddQuickAction()
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         appView.sceneDidDisconnect()
+    }
+
+    func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        appView.performAddQuickAction()
     }
 }
 
