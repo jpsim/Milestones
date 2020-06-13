@@ -10,6 +10,10 @@ public struct AppView: View {
         ViewStore(store).send(.persistToDisk)
     }
 
+    public func performAddQuickAction() {
+        ViewStore(store).send(.addButtonTapped)
+    }
+
     public var body: some View {
         NavigationView {
             WithViewStore(store) { viewStore in
