@@ -312,4 +312,52 @@ class AppReducerTests: XCTestCase {
             )
         ]])
     }
+
+    func testAddButtonTappedClearsEditing() {
+        let milestoneA = Milestone(
+            id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
+            calendar: Calendar(identifier: .gregorian),
+            title: "A",
+            today: Date(timeIntervalSinceReferenceDate: 0),
+            date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
+            isEditing: true
+        )
+
+        let store = TestStore(
+            initialState: AppState(milestones: [milestoneA]),
+            reducer: appReducer,
+            environment: AppEnvironment(
+                uuid: { UUID(uuidString: "CAFEBEEF-CAFE-BEEF-CAFE-BEEFCAFEBEEF")! },
+                persist: { _ in },
+                startOfDay: { Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7) },
+                calendar: Calendar(identifier: .gregorian),
+                mainQueue: mainScheduler.eraseToAnyScheduler(),
+                persistenceQueue: persistenceScheduler.eraseToAnyScheduler()
+            )
+        )
+
+        store.assert(
+            .send(.addButtonTapped) {
+                $0.milestones = [
+                    Milestone(
+                        id: UUID(uuidString: "CAFEBEEF-CAFE-BEEF-CAFE-BEEFCAFEBEEF")!,
+                        calendar: Calendar(identifier: .gregorian),
+                        title: "",
+                        today: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
+                        date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
+                        isEditing: true
+                    ),
+                    Milestone(
+                        id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
+                        calendar: Calendar(identifier: .gregorian),
+                        title: "A",
+                        today: Date(timeIntervalSinceReferenceDate: 0),
+                        date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
+                        isEditing: false
+                    )
+                ]
+            },
+            .send(.persistToDisk)
+        )
+    }
 }
