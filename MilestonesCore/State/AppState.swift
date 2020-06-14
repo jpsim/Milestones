@@ -70,11 +70,19 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
             state.setToday(environment.startOfDay())
             return .none
         case .addButtonTapped:
+            state.milestones
+                .enumerated()
+                .filter { $1.isEditing }
+                .forEach { index, milestone in
+                    state.milestones[index].isEditing = false
+                }
+
             let startOfDay = environment.startOfDay()
             let calendar = environment.calendar
-            state.milestones.append(
+            state.milestones.insert(
                 Milestone(id: environment.uuid(), calendar: calendar, title: "", today: startOfDay, date: startOfDay,
-                          isEditing: true)
+                          isEditing: true),
+                at: 0
             )
             state.milestones.sort()
             return .none
