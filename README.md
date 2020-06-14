@@ -14,11 +14,23 @@ Built to try out the [Swift Composable Architecture][tca], [SwiftUI][swiftui] an
 
 Tested with Xcode 11.5. Requires iOS 13.0 or later.
 
+## Known Issues
+
+Unfortunately SwiftUI is still buggy as of iOS 13.5. Here are some of the issues impacting this app
+that I'm aware of:
+
+1. FB7736428: Navigation bar buttons are sometimes unresponsive after dismissing the edit modal.
+2. Baseline in the edit modal `TextField` is off when using an emoji as the first character.
+3. Delete animation in List view is janky.
+4. No way to programmatically make `TextField` the first responder without resorting to `UITextField` (mitigated).
+
 ## Credits
 
 The videos and library from [Point Free][point-free]. Highly recommend both.
 
 The [RKCalendar][rkcalendar] project, which I used and incrementally modified for the calendar functionality.
+
+The [SwiftUI-Introspect][introspect] library to fix bugs or address limitations in SwiftUI.
 
 ## License
 
@@ -27,5 +39,7 @@ MIT.
 [tca]: https://github.com/pointfreeco/swift-composable-architecture
 [swiftui]: https://developer.apple.com/xcode/swiftui/
 [combine]: https://developer.apple.com/documentation/combine
+[FB7736428]: https://gist.github.com/jpsim/9bea8715291850e0bc3c6042eee10db5
 [point-free]: https://www.pointfree.co
 [rkcalendar]: https://github.com/RaffiKian/RKCalendar
+[introspect]: https://github.com/siteline/SwiftUI-Introspect
