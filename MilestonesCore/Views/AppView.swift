@@ -41,7 +41,7 @@ public struct AppView: View {
                 }
                 .navigationBarTitle("Milestones")
                 .navigationBarItems(
-                    leading: EditButton(),
+                    leading: viewStore.milestones.isEmpty ? nil : EditButton(),
                     trailing: Button("Add") {
                         viewStore.send(.addButtonTapped)
                     }

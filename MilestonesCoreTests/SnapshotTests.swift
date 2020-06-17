@@ -51,7 +51,26 @@ class SnapshotTests: XCTestCase {
         assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .dark)), named: "dark-mode")
     }
 
-    func testAppViewEditing() {
+    func testAppViewEditingWithZeroMilestones() {
+        let store = Store(
+            initialState: AppState(milestones: [], editMode: .active),
+            reducer: appReducer,
+            environment: AppEnvironment(
+                uuid: { fatalError() },
+                persist: { _ in fatalError()},
+                startOfDay: { Date(timeIntervalSinceReferenceDate: 0) },
+                calendar: Calendar(identifier: .gregorian),
+                mainQueue: DispatchQueue.testScheduler.eraseToAnyScheduler(),
+                persistenceQueue: DispatchQueue.testScheduler.eraseToAnyScheduler()
+            )
+        )
+        let view = AppView(store: store)
+        let vc = UIHostingController(rootView: view)
+        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .light)), named: "light-mode")
+        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .dark)), named: "dark-mode")
+    }
+
+    func testAppViewEditingWithOneMilestone() {
         let milestone = Milestone(
             id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
             calendar: .testCalendar,
