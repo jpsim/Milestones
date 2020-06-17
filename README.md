@@ -19,7 +19,7 @@ Tested with Xcode 11.5. Requires iOS 13.0 or later.
 Unfortunately SwiftUI is still buggy as of iOS 13.5. Here are some of the issues impacting this app
 that I'm aware of:
 
-1. FB7736428: Navigation bar buttons are sometimes unresponsive after dismissing the edit modal.
+1. [FB7736428][FB7736428]: Navigation bar buttons are sometimes unresponsive after dismissing the edit modal.
 2. Baseline in the edit modal `TextField` is off when using an emoji as the first character.
 3. Delete animation in List view is janky.
 4. No way to programmatically make `TextField` the first responder without resorting to `UITextField` (mitigated).
