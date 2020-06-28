@@ -4,15 +4,9 @@ import SwiftUI
 // MARK: - View
 
 public struct AppView: View {
+    @EnvironmentObject private var quickActionToPerform: QuickActionToPerform
+    @Environment(\.scenePhase) private var scenePhase
     let store: Store<AppState, AppAction>
-
-    public func sceneDidDisconnect() {
-        ViewStore(store).send(.persistToDisk)
-    }
-
-    public func performAddQuickAction() {
-        ViewStore(store).send(.addButtonTapped)
-    }
 
     public var body: some View {
         NavigationView {
@@ -46,11 +40,22 @@ public struct AppView: View {
                         viewStore.send(.addButtonTapped)
                     }
                 )
-                .onAppear {
-                    viewStore.send(.setTimerActive(true))
-                }
-                .onDisappear {
-                    viewStore.send(.setTimerActive(false))
+                .onChange(of: scenePhase) { newScenePhase in
+                    switch newScenePhase {
+                    case .active:
+                        viewStore.send(.setTimerActive(true))
+                        switch quickActionToPerform.quickAction {
+                        case .add:
+                            viewStore.send(.addButtonTapped)
+                        case nil:
+                            break
+                        }
+                    case .inactive, .background:
+                        fallthrough
+                    @unknown default:
+                        viewStore.send(.setTimerActive(false))
+                        viewStore.send(.persistToDisk)
+                    }
                 }
                 .environment(
                   \.editMode,
