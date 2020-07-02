@@ -18,9 +18,8 @@ class SnapshotTests: XCTestCase {
             endDate: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 32)
         )
 
-        let vc = UIHostingController(rootView: view)
-        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .light)), named: "light-mode")
-        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .dark)), named: "dark-mode")
+        assertSnapshot(matching: view, as: .iPhoneXsMaxImage(style: .light), named: "light-mode")
+        assertSnapshot(matching: view, as: .iPhoneXsMaxImage(style: .dark), named: "dark-mode")
     }
 
     func testAppView() {
@@ -46,9 +45,9 @@ class SnapshotTests: XCTestCase {
             )
         )
         let view = AppView(store: store)
-        let vc = UIHostingController(rootView: view)
-        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .light)), named: "light-mode")
-        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .dark)), named: "dark-mode")
+
+        assertSnapshot(matching: view, as: .iPhoneXsMaxImage(style: .light), named: "light-mode")
+        assertSnapshot(matching: view, as: .iPhoneXsMaxImage(style: .dark), named: "dark-mode")
     }
 
     func testAppViewEditingWithZeroMilestones() {
@@ -65,9 +64,9 @@ class SnapshotTests: XCTestCase {
             )
         )
         let view = AppView(store: store)
-        let vc = UIHostingController(rootView: view)
-        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .light)), named: "light-mode")
-        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .dark)), named: "dark-mode")
+
+        assertSnapshot(matching: view, as: .iPhoneXsMaxImage(style: .light), named: "light-mode")
+        assertSnapshot(matching: view, as: .iPhoneXsMaxImage(style: .dark), named: "dark-mode")
     }
 
     func testAppViewEditingWithOneMilestone() {
@@ -93,9 +92,9 @@ class SnapshotTests: XCTestCase {
             )
         )
         let view = AppView(store: store)
-        let vc = UIHostingController(rootView: view)
-        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .light)), named: "light-mode")
-        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .dark)), named: "dark-mode")
+
+        assertSnapshot(matching: view, as: .iPhoneXsMaxImage(style: .light), named: "light-mode")
+        assertSnapshot(matching: view, as: .iPhoneXsMaxImage(style: .dark), named: "dark-mode")
     }
 
     func testTodayView() {
@@ -121,9 +120,9 @@ class SnapshotTests: XCTestCase {
             )
         )
         let view = TodayView(store: store)
-        let vc = UIHostingController(rootView: view)
-        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .light)), named: "light-mode")
-        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .dark)), named: "dark-mode")
+
+        assertSnapshot(matching: view, as: .iPhoneXsMaxImage(style: .light), named: "light-mode")
+        assertSnapshot(matching: view, as: .iPhoneXsMaxImage(style: .dark), named: "dark-mode")
     }
 
     func testMilestoneEditView() {
@@ -142,9 +141,9 @@ class SnapshotTests: XCTestCase {
             environment: MilestoneEnvironment()
         )
         let view = MilestoneEditView(store: store)
-        let vc = UIHostingController(rootView: view)
-        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .light)), named: "light-mode")
-        assertSnapshot(matching: vc, as: .image(traits: .init(userInterfaceStyle: .dark)), named: "dark-mode")
+
+        assertSnapshot(matching: view, as: .iPhoneXsMaxImage(style: .light), named: "light-mode")
+        assertSnapshot(matching: view, as: .iPhoneXsMaxImage(style: .dark), named: "dark-mode")
     }
 }
 
@@ -154,5 +153,11 @@ private extension Calendar {
         calendar.timeZone = TimeZone(secondsFromGMT: 0)!
         calendar.locale = Locale(identifier: "en_US_POSIX")
         return calendar
+    }
+}
+
+private extension Snapshotting where Value: SwiftUI.View, Format == UIImage {
+    static func iPhoneXsMaxImage(style: UIUserInterfaceStyle) -> Snapshotting {
+        return .image(layout: .device(config: .iPhoneXsMax), traits: .init(userInterfaceStyle: style))
     }
 }
