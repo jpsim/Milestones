@@ -1,4 +1,4 @@
-import SwiftUI
+import Foundation
 
 extension Array where Element == Milestone {
     static var mock: Self {

@@ -1,5 +1,5 @@
 import ComposableArchitecture
-import SwiftUI
+import Foundation
 
 // MARK: - State
 

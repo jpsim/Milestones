@@ -3,6 +3,8 @@ import NotificationCenter
 import SwiftUI
 import UIKit
 
+// swiftlint:disable unused_declaration
+
 class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewDidLoad() {
         super.viewDidLoad()
