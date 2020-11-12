@@ -1,4 +1,4 @@
-import SwiftUI
+import Combine
 
 public class QuickActionToPerform: ObservableObject {
     public enum QuickAction: Hashable {
