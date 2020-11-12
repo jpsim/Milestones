@@ -19,7 +19,7 @@ struct MilestoneBaseCellView: View {
             self.subtitlePrefix = dateComponentsFormatter.string(from: components)!
 
             let dateFormatter = DateFormatter(calendar: milestone.calendar, dateStyle: .long)
-            self.subtitleSuffix = " until \(dateFormatter.string(from: milestone.date))"
+            self.subtitleSuffix = "until \(dateFormatter.string(from: milestone.date))"
         }
     }
 
@@ -31,9 +31,7 @@ struct MilestoneBaseCellView: View {
                 Text(viewStore.title ?? "Untitled")
                     .font(.title)
                     .foregroundColor(viewStore.isUntitled ? .gray : nil)
-                Text(viewStore.subtitlePrefix)
-                    .bold()
-                + Text(viewStore.subtitleSuffix)
+                Text("\(Text(viewStore.subtitlePrefix).bold()) \(viewStore.subtitleSuffix)")
             }
         }
     }
