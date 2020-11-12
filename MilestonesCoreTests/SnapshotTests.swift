@@ -24,7 +24,7 @@ class SnapshotTests: XCTestCase {
 
     func testAppView() {
         let milestone = Milestone(
-            id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
+            id: UUID(),
             calendar: .testCalendar,
             title: "Big Day",
             today: Date(timeIntervalSinceReferenceDate: 0),
@@ -71,7 +71,7 @@ class SnapshotTests: XCTestCase {
 
     func testAppViewEditingWithOneMilestone() {
         let milestone = Milestone(
-            id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
+            id: UUID(),
             calendar: .testCalendar,
             title: "Big Day",
             today: Date(timeIntervalSinceReferenceDate: 0),
@@ -99,7 +99,7 @@ class SnapshotTests: XCTestCase {
 
     func testMilestoneEditView() {
         let milestone = Milestone(
-            id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
+            id: UUID(),
             calendar: .testCalendar,
             title: "Big Day",
             today: Date(timeIntervalSinceReferenceDate: 0),

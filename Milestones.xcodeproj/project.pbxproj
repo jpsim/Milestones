@@ -15,6 +15,8 @@
 		8F859498247240F30053A911 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F859497247240F30053A911 /* Assets.xcassets */; };
 		8F85949B247240F30053A911 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F85949A247240F30053A911 /* Preview Assets.xcassets */; };
 		8F85949E247240F30053A911 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F85949C247240F30053A911 /* LaunchScreen.storyboard */; };
+		8FAE359A255DED6F0040C754 /* Milestones+Trimming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE3599255DED6F0040C754 /* Milestones+Trimming.swift */; };
+		8FAE35A0255DEEAF0040C754 /* MilestonesTrimmingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE359F255DEEAF0040C754 /* MilestonesTrimmingTests.swift */; };
 		8FC60E03248304C000D4C9D7 /* MilestonesCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC60DFA248304C000D4C9D7 /* MilestonesCore.framework */; };
 		8FC60E0F248304C000D4C9D7 /* MilestonesCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC60DFA248304C000D4C9D7 /* MilestonesCore.framework */; };
 		8FC60E10248304C100D4C9D7 /* MilestonesCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC60DFA248304C000D4C9D7 /* MilestonesCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -153,6 +155,8 @@
 		8FA23F402472580900DCE048 /* CalendarHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		8FA23F412472580900DCE048 /* CalendarMonthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarMonthView.swift; sourceTree = "<group>"; };
 		8FA23F422472580900DCE048 /* CalendarDateView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarDateView.swift; sourceTree = "<group>"; };
+		8FAE3599255DED6F0040C754 /* Milestones+Trimming.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Milestones+Trimming.swift"; sourceTree = "<group>"; };
+		8FAE359F255DEEAF0040C754 /* MilestonesTrimmingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilestonesTrimmingTests.swift; sourceTree = "<group>"; };
 		8FC60DFA248304C000D4C9D7 /* MilestonesCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MilestonesCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FC60DFD248304C000D4C9D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FC60E02248304C000D4C9D7 /* MilestonesCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MilestonesCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,6 +277,7 @@
 				8F9241A7247A1C55004681F1 /* DateComponentsFormatter+Milestones.swift */,
 				8F9241A9247A1CBF004681F1 /* DateFormatter+Milestones.swift */,
 				8F06DA3324743F6C00AA5451 /* Milestones+Mock.swift */,
+				8FAE3599255DED6F0040C754 /* Milestones+Trimming.swift */,
 				8FC60E2C248309A200D4C9D7 /* Views+Live.swift */,
 			);
 			path = Extensions;
@@ -318,6 +323,7 @@
 				8F8594A8247240F30053A911 /* MilestoneReducerTests.swift */,
 				8F9241B7247C1E6C004681F1 /* MilestoneTests.swift */,
 				8F432C81248BF6A4001385C6 /* SnapshotTests.swift */,
+				8FAE359F255DEEAF0040C754 /* MilestonesTrimmingTests.swift */,
 			);
 			path = MilestonesCoreTests;
 			sourceTree = "<group>";
@@ -554,6 +560,7 @@
 			files = (
 				8F2E55F3248559B600C8628A /* MilestoneBaseCellView.swift in Sources */,
 				8FC60E26248307DE00D4C9D7 /* DateFormatter+Milestones.swift in Sources */,
+				8FAE359A255DED6F0040C754 /* Milestones+Trimming.swift in Sources */,
 				8FC60E28248307DE00D4C9D7 /* Storage.swift in Sources */,
 				8FC60E1B248304DD00D4C9D7 /* Milestone.swift in Sources */,
 				8FC60E27248307DE00D4C9D7 /* Milestones+Mock.swift in Sources */,
@@ -579,6 +586,7 @@
 			files = (
 				8FC60E2F24830AE000D4C9D7 /* MilestoneTests.swift in Sources */,
 				8F432C82248BF6A4001385C6 /* SnapshotTests.swift in Sources */,
+				8FAE35A0255DEEAF0040C754 /* MilestonesTrimmingTests.swift in Sources */,
 				8FC60E2E24830AE000D4C9D7 /* AppReducerTests.swift in Sources */,
 				8FC60E3024830AE000D4C9D7 /* MilestoneReducerTests.swift in Sources */,
 			);

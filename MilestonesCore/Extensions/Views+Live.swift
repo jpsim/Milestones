@@ -16,18 +16,10 @@ public extension AppView {
 
 public extension MilestonesWidgetView {
     static func live(startingDate: Date) -> MilestonesWidgetView {
-        let storedMilestones = (try? Storage.loadFromDisk()) ?? []
-        let milestonesOffsetByStartingDate = storedMilestones.compactMap { milestone -> Milestone? in
-            let dateComparison = Calendar.current.compare(milestone.date, to: startingDate, toGranularity: .day)
-            if dateComparison == .orderedAscending {
-                return nil
-            }
-
-            var offsetMilestone = milestone
-            offsetMilestone.today = startingDate
-            return offsetMilestone
-        }
-        return MilestonesWidgetView(milestones: milestonesOffsetByStartingDate)
+        return MilestonesWidgetView(
+            milestones: (try? Storage.loadFromDisk()) ?? []
+                .trimmingBefore(applyingToday: startingDate, calendar: .current)
+        )
     }
 }
 
