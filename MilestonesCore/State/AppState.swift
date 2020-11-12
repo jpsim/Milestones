@@ -35,10 +35,10 @@ enum AppAction: Equatable {
 struct AppEnvironment {
     let uuid: () -> UUID
     let persist: ([Milestone]) -> Void
-    var startOfDay: () -> Date
-    var calendar: Calendar
-    var mainQueue: AnySchedulerOf<DispatchQueue>
-    var persistenceQueue: AnySchedulerOf<DispatchQueue>
+    let startOfDay: () -> Date
+    let calendar: Calendar
+    let mainQueue: AnySchedulerOf<DispatchQueue>
+    let persistenceQueue: AnySchedulerOf<DispatchQueue>
 }
 
 // MARK: - Reducer
