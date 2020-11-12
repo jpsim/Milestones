@@ -13,18 +13,6 @@ public extension AppView {
     }
 }
 
-public extension TodayView {
-    static var live: TodayView {
-        return TodayView(
-            store: Store(
-                initialState: .fromDiskIfPossible(),
-                reducer: appReducer,
-                environment: .live
-            )
-        )
-    }
-}
-
 private extension AppState {
     static func fromDiskIfPossible() -> AppState {
         return AppState(milestones: (try? Storage.loadFromDisk()) ?? [])

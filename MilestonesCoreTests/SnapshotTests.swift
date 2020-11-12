@@ -97,34 +97,6 @@ class SnapshotTests: XCTestCase {
         assertSnapshot(matching: view, as: .iPhoneXsMaxImage(style: .dark), named: "dark-mode")
     }
 
-    func testTodayView() {
-        let milestone = Milestone(
-            id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
-            calendar: .testCalendar,
-            title: "Big Day",
-            today: Date(timeIntervalSinceReferenceDate: 0),
-            date: Date(timeIntervalSinceReferenceDate: 60 * 60 * 24 * 7),
-            isEditing: false
-        )
-
-        let store = Store(
-            initialState: AppState(milestones: [milestone]),
-            reducer: appReducer,
-            environment: AppEnvironment(
-                uuid: { fatalError() },
-                persist: { _ in fatalError() },
-                startOfDay: { Date(timeIntervalSinceReferenceDate: 0) },
-                calendar: Calendar(identifier: .gregorian),
-                mainQueue: DispatchQueue.testScheduler.eraseToAnyScheduler(),
-                persistenceQueue: DispatchQueue.testScheduler.eraseToAnyScheduler()
-            )
-        )
-        let view = TodayView(store: store)
-
-        assertSnapshot(matching: view, as: .iPhoneXsMaxImage(style: .light), named: "light-mode")
-        assertSnapshot(matching: view, as: .iPhoneXsMaxImage(style: .dark), named: "dark-mode")
-    }
-
     func testMilestoneEditView() {
         let milestone = Milestone(
             id: UUID(uuidString: "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF")!,
