@@ -1,5 +1,7 @@
 # Milestones
 
+![CI](https://github.com/jpsim/Milestones/workflows/CI/badge.svg)
+
 An app to count down the days until upcoming milestones. We all have something to look forward to.
 
 Built to try out the [Swift Composable Architecture][tca], [SwiftUI][swiftui] and [Combine][combine].
