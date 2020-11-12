@@ -37,7 +37,7 @@ class SnapshotTests: XCTestCase {
             reducer: appReducer,
             environment: AppEnvironment(
                 uuid: { fatalError() },
-                persist: { _ in fatalError()},
+                persist: { _ in fatalError() },
                 startOfDay: { Date(timeIntervalSinceReferenceDate: 0) },
                 calendar: Calendar(identifier: .gregorian),
                 mainQueue: DispatchQueue.testScheduler.eraseToAnyScheduler(),
@@ -56,7 +56,7 @@ class SnapshotTests: XCTestCase {
             reducer: appReducer,
             environment: AppEnvironment(
                 uuid: { fatalError() },
-                persist: { _ in fatalError()},
+                persist: { _ in fatalError() },
                 startOfDay: { Date(timeIntervalSinceReferenceDate: 0) },
                 calendar: Calendar(identifier: .gregorian),
                 mainQueue: DispatchQueue.testScheduler.eraseToAnyScheduler(),
@@ -84,7 +84,7 @@ class SnapshotTests: XCTestCase {
             reducer: appReducer,
             environment: AppEnvironment(
                 uuid: { fatalError() },
-                persist: { _ in fatalError()},
+                persist: { _ in fatalError() },
                 startOfDay: { Date(timeIntervalSinceReferenceDate: 0) },
                 calendar: Calendar(identifier: .gregorian),
                 mainQueue: DispatchQueue.testScheduler.eraseToAnyScheduler(),
@@ -112,7 +112,7 @@ class SnapshotTests: XCTestCase {
             reducer: appReducer,
             environment: AppEnvironment(
                 uuid: { fatalError() },
-                persist: { _ in fatalError()},
+                persist: { _ in fatalError() },
                 startOfDay: { Date(timeIntervalSinceReferenceDate: 0) },
                 calendar: Calendar(identifier: .gregorian),
                 mainQueue: DispatchQueue.testScheduler.eraseToAnyScheduler(),

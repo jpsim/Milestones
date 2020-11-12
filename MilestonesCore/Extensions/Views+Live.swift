@@ -1,8 +1,8 @@
 import ComposableArchitecture
 import Foundation
 
-extension AppView {
-    public static var live: AppView {
+public extension AppView {
+    static var live: AppView {
         return AppView(
             store: Store(
                 initialState: .fromDiskIfPossible(),
@@ -13,8 +13,8 @@ extension AppView {
     }
 }
 
-extension TodayView {
-    public static var live: TodayView {
+public extension TodayView {
+    static var live: TodayView {
         return TodayView(
             store: Store(
                 initialState: .fromDiskIfPossible(),

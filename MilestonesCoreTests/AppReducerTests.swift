@@ -3,6 +3,8 @@ import ComposableArchitecture
 import SwiftUI
 import XCTest
 
+// swiftlint:disable type_body_length - We should probably break up the main appReducer
+
 class AppReducerTests: XCTestCase {
     let mainScheduler = DispatchQueue.testScheduler
     let persistenceScheduler = DispatchQueue.testScheduler
