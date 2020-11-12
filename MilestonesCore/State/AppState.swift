@@ -73,7 +73,7 @@ let appReducer = Reducer<AppState, AppAction, AppEnvironment>.combine(
             state.milestones
                 .enumerated()
                 .filter { $1.isEditing }
-                .forEach { index, milestone in
+                .forEach { index, _ in
                     state.milestones[index].isEditing = false
                 }
 

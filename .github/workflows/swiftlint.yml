@@ -1,4 +1,4 @@
-name: CI
+name: SwiftLint
 
 on:
   push:
@@ -9,11 +9,15 @@ on:
       - '*'
 
 jobs:
-  test:
+  lint:
     runs-on: macos-latest
     env:
       DEVELOPER_DIR: /Applications/Xcode_12.2.app
     steps:
       - uses: actions/checkout@v1
-      - name: Run tests
-        run: xcodebuild test -scheme MilestonesCore -destination platform="iOS Simulator,name=iPhone 12 Pro Max,OS=14.2"
+      - name: Update Homebrew
+        run: brew update
+      - name: Install SwiftLint
+        run: brew upgrade swiftlint || true
+      - name: Run SwiftLint
+        run: swiftlint

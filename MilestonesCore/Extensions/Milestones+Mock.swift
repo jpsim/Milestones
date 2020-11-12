@@ -5,7 +5,7 @@ extension Array where Element == Milestone {
         [
             Milestone(title: "🍎 WWDC", month: 6, day: 22),
             Milestone(title: "🇨🇦 Canada Day", month: 7, day: 1),
-            Milestone(title: "🇺🇸 Independence Day", month: 7, day: 4),
+            Milestone(title: "🇺🇸 Independence Day", month: 7, day: 4)
         ]
     }
 }

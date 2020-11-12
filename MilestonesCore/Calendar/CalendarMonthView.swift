@@ -56,8 +56,9 @@ struct CalendarMonthView: View {
     func getMonthHeader() -> String {
         let headerDateFormatter = DateFormatter(
             calendar: calendar,
-            dateFormat: DateFormatter.dateFormat(fromTemplate: "yyyy LLLL", options: 0,
-            locale: calendar.locale)
+            dateFormat: DateFormatter.dateFormat(
+                fromTemplate: "yyyy LLLL", options: 0, locale: calendar.locale
+            )
         )
 
         return headerDateFormatter
