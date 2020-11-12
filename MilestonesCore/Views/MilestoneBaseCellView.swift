@@ -23,7 +23,7 @@ struct MilestoneBaseCellView: View {
         }
     }
 
-    let store: Store<Milestone, MilestoneAction>
+    let store: Store<Milestone, Never>
 
     var body: some View {
         WithViewStore(store.scope(state: ViewState.init)) { viewStore in
@@ -52,7 +52,7 @@ struct MilestoneBaseCellView_Previews: PreviewProvider {
                         date: Date(timeIntervalSinceNow: 60 * 60 * 24 * 7),
                         isEditing: false
                     ),
-                    reducer: milestoneReducer,
+                    reducer: .empty,
                     environment: MilestoneEnvironment()
                 )
             )

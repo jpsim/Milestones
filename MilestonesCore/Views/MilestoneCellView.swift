@@ -8,21 +8,21 @@ struct MilestoneCellView: View {
 
     var body: some View {
         WithViewStore(store) { viewStore in
-            MilestoneBaseCellView(store: self.store)
-            .contextMenu {
-                Button(action: { viewStore.send(.setIsEditing(true)) }) {
-                    Text("Edit")
-                    Image(systemName: "square.and.pencil")
-                }
+            MilestoneBaseCellView(store: self.store.actionless)
+                .contextMenu {
+                    Button(action: { viewStore.send(.setIsEditing(true)) }) {
+                        Text("Edit")
+                        Image(systemName: "square.and.pencil")
+                    }
 
-                Button(action: { viewStore.send(.delete) }) {
-                    Text("Delete")
-                    Image(systemName: "trash")
+                    Button(action: { viewStore.send(.delete) }) {
+                        Text("Delete")
+                        Image(systemName: "trash")
+                    }
                 }
-            }
-            .popover(isPresented: viewStore.binding(get: \.isEditing, send: MilestoneAction.setIsEditing)) {
-                MilestoneEditView(store: self.store)
-            }
+                .popover(isPresented: viewStore.binding(get: \.isEditing, send: MilestoneAction.setIsEditing)) {
+                    MilestoneEditView(store: self.store)
+                }
         }
     }
 }
