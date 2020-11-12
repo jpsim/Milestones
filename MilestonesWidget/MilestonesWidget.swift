@@ -1,4 +1,3 @@
-import Intents
 import MilestonesCore
 import SwiftUI
 import WidgetKit
