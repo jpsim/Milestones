@@ -16,6 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Install SwiftLint
-        run: brew install swiftlint
+        run: brew upgrade swiftlint || true
       - name: Run SwiftLint
         run: swiftlint
