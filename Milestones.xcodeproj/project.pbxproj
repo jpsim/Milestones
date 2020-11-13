@@ -17,6 +17,7 @@
 		8F85949E247240F30053A911 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F85949C247240F30053A911 /* LaunchScreen.storyboard */; };
 		8FAE359A255DED6F0040C754 /* Milestones+Trimming.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE3599255DED6F0040C754 /* Milestones+Trimming.swift */; };
 		8FAE35A0255DEEAF0040C754 /* MilestonesTrimmingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FAE359F255DEEAF0040C754 /* MilestonesTrimmingTests.swift */; };
+		8FC1584D255ED48B008C03BA /* MilestonesCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC60DFA248304C000D4C9D7 /* MilestonesCore.framework */; };
 		8FC60E03248304C000D4C9D7 /* MilestonesCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC60DFA248304C000D4C9D7 /* MilestonesCore.framework */; };
 		8FC60E0F248304C000D4C9D7 /* MilestonesCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC60DFA248304C000D4C9D7 /* MilestonesCore.framework */; };
 		8FC60E10248304C100D4C9D7 /* MilestonesCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC60DFA248304C000D4C9D7 /* MilestonesCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -47,12 +48,17 @@
 		8FE4FB34255DB3750030C979 /* MilestonesWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4FB30255DB3740030C979 /* MilestonesWidget.intentdefinition */; };
 		8FE4FB35255DB3750030C979 /* MilestonesWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4FB30255DB3740030C979 /* MilestonesWidget.intentdefinition */; };
 		8FE4FB38255DB3750030C979 /* MilestonesWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8FE4FB28255DB3740030C979 /* MilestonesWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		8FE4FB43255DB3C10030C979 /* MilestonesCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC60DFA248304C000D4C9D7 /* MilestonesCore.framework */; };
-		8FE4FB44255DB3C10030C979 /* MilestonesCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8FC60DFA248304C000D4C9D7 /* MilestonesCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8FE4FB5B255DD4B50030C979 /* MilestonesWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE4FB5A255DD4B50030C979 /* MilestonesWidgetView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8FC1584B255ED484008C03BA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F859486247240F10053A911 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8FC60DF9248304C000D4C9D7;
+			remoteInfo = MilestonesCore;
+		};
 		8FC60E04248304C000D4C9D7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8F859486247240F10053A911 /* Project object */;
@@ -81,13 +87,6 @@
 			remoteGlobalIDString = 8FE4FB27255DB3740030C979;
 			remoteInfo = MilestonesWidgetExtension;
 		};
-		8FE4FB45255DB3C10030C979 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8F859486247240F10053A911 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8FC60DF9248304C000D4C9D7;
-			remoteInfo = MilestonesCore;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -109,17 +108,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				8FC60E10248304C100D4C9D7 /* MilestonesCore.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8FE4FB47255DB3C10030C979 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8FE4FB44255DB3C10030C979 /* MilestonesCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -204,9 +192,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FC1584D255ED48B008C03BA /* MilestonesCore.framework in Frameworks */,
 				8FE4FB2C255DB3740030C979 /* SwiftUI.framework in Frameworks */,
 				8FE4FB2A255DB3740030C979 /* WidgetKit.framework in Frameworks */,
-				8FE4FB43255DB3C10030C979 /* MilestonesCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,12 +434,11 @@
 				8FE4FB24255DB3740030C979 /* Sources */,
 				8FE4FB25255DB3740030C979 /* Frameworks */,
 				8FE4FB26255DB3740030C979 /* Resources */,
-				8FE4FB47255DB3C10030C979 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8FE4FB46255DB3C10030C979 /* PBXTargetDependency */,
+				8FC1584C255ED484008C03BA /* PBXTargetDependency */,
 			);
 			name = MilestonesWidgetExtension;
 			productName = MilestonesWidgetExtension;
@@ -604,6 +591,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8FC1584C255ED484008C03BA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8FC60DF9248304C000D4C9D7 /* MilestonesCore */;
+			targetProxy = 8FC1584B255ED484008C03BA /* PBXContainerItemProxy */;
+		};
 		8FC60E05248304C000D4C9D7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8FC60DF9248304C000D4C9D7 /* MilestonesCore */;
@@ -623,11 +615,6 @@
 			isa = PBXTargetDependency;
 			target = 8FE4FB27255DB3740030C979 /* MilestonesWidgetExtension */;
 			targetProxy = 8FE4FB36255DB3750030C979 /* PBXContainerItemProxy */;
-		};
-		8FE4FB46255DB3C10030C979 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8FC60DF9248304C000D4C9D7 /* MilestonesCore */;
-			targetProxy = 8FE4FB45255DB3C10030C979 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
