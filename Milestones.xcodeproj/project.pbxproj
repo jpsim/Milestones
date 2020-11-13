@@ -204,7 +204,6 @@
 		8F859485247240F10053A911 = {
 			isa = PBXGroup;
 			children = (
-				8FE4FB39255DB3750030C979 /* MilestonesWidgetExtension.entitlements */,
 				8F859490247240F10053A911 /* Milestones */,
 				8FC60DFB248304C000D4C9D7 /* MilestonesCore */,
 				8FC60E08248304C000D4C9D7 /* MilestonesCoreTests */,
@@ -340,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				8FE4FB2E255DB3740030C979 /* MilestonesWidget.swift */,
+				8FE4FB39255DB3750030C979 /* MilestonesWidgetExtension.entitlements */,
 				8FE4FB30255DB3740030C979 /* MilestonesWidget.intentdefinition */,
 				8FE4FB31255DB3750030C979 /* Assets.xcassets */,
 				8FE4FB33255DB3750030C979 /* Info.plist */,
@@ -906,7 +906,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_ENTITLEMENTS = MilestonesWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MilestonesWidget/MilestonesWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X4ST43AL9W;
 				INFOPLIST_FILE = MilestonesWidget/Info.plist;
@@ -932,7 +932,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CODE_SIGN_ENTITLEMENTS = MilestonesWidgetExtension.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MilestonesWidget/MilestonesWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X4ST43AL9W;
 				INFOPLIST_FILE = MilestonesWidget/Info.plist;
