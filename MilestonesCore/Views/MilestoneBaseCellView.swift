@@ -4,6 +4,20 @@ import SwiftUI
 // MARK: - View
 
 struct MilestoneBaseCellView: View {
+    enum Size {
+        case compact
+        case normal
+
+        fileprivate var verticalSpacing: CGFloat {
+            switch self {
+            case .compact:
+                return 2
+            case .normal:
+                return 10
+            }
+        }
+    }
+
     struct ViewState: Equatable {
         let title: String?
         let subtitlePrefix: String
@@ -23,11 +37,17 @@ struct MilestoneBaseCellView: View {
         }
     }
 
-    let store: Store<Milestone, MilestoneAction>
+    let store: Store<Milestone, Never>
+    let size: Size
+
+    init(store: Store<Milestone, Never>, size: Size = .normal) {
+        self.store = store
+        self.size = size
+    }
 
     var body: some View {
         WithViewStore(store.scope(state: ViewState.init)) { viewStore in
-            VStack(alignment: .leading, spacing: 10.0) {
+            VStack(alignment: .leading, spacing: size.verticalSpacing) {
                 Text(viewStore.title ?? "Untitled")
                     .font(.title)
                     .foregroundColor(viewStore.isUntitled ? .gray : nil)
@@ -52,7 +72,7 @@ struct MilestoneBaseCellView_Previews: PreviewProvider {
                         date: Date(timeIntervalSinceNow: 60 * 60 * 24 * 7),
                         isEditing: false
                     ),
-                    reducer: milestoneReducer,
+                    reducer: .empty,
                     environment: MilestoneEnvironment()
                 )
             )
