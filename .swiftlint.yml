@@ -78,6 +78,7 @@ identifier_name:
 file_name:
   excluded:
     - Milestones+Mock.swift
+    - Milestones+Trimming.swift
     - Views+Live.swift
 
 function_body_length:
