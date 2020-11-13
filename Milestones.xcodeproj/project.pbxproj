@@ -1008,7 +1008,7 @@
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 0.3.0;
+				minimumVersion = 0.9.0;
 			};
 		};
 		8F432C83248BF700001385C6 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {

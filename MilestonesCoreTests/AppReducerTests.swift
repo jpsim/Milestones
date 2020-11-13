@@ -92,8 +92,8 @@ class AppReducerTests: XCTestCase {
         store.assert(
             .send(.setTimerActive(true)) { _ in },
             .do {
-                self.mainScheduler.advance(by: 1)
                 secondsElapsed += 1
+                self.mainScheduler.advance(by: 1)
             },
             .receive(.timerTicked) {
                 $0.milestones = [

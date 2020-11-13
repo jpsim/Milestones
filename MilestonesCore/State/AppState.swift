@@ -119,7 +119,7 @@ private extension Reducer where State == AppState, Action == AppAction, Environm
             if forcePersist {
                 // If we're forcing persistence, do so synchronously.
                 persistEffect = Effect.fireAndForget { environment.persist(newMilestones) }
-                    .cancellable(id: PersistID())
+                    .cancellable(id: PersistID(), cancelInFlight: true)
             } else if newMilestones != previousState.milestones {
                 // Otherwise persist in the background only if the milestones have changed.
                 // Debounce every second to avoid disk thrash.
